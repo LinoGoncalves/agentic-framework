@@ -10,9 +10,24 @@ A production-ready Human-in-the-Loop (HITL) software development lifecycle frame
 
 ## 📦 Installation
 
-### From GitHub
+### Recommended: Virtual Environment Installation
 
 ```bash
+# Create and activate a virtual environment (recommended)
+python -m venv agentic-env
+# On Windows:
+agentic-env\Scripts\activate
+# On macOS/Linux:
+source agentic-env/bin/activate
+
+# Install the framework
+pip install git+https://github.com/LinoGoncalves/agentic-framework.git
+```
+
+### System-wide Installation
+
+```bash
+# Install system-wide (may require admin rights)
 pip install git+https://github.com/LinoGoncalves/agentic-framework.git
 ```
 
@@ -24,7 +39,15 @@ cd agentic-framework
 pip install -e ".[dev]"
 ```
 
-## �🚀 Quick Start
+### ⚠️ Windows PATH Notes
+
+If you get a PATH warning during installation, the CLI commands are installed but may not be accessible from any directory. You can:
+
+1. **Use the recommended virtual environment approach above** (prevents PATH issues)
+2. **Add to PATH manually**: Add `%APPDATA%\Python\Python3XX\Scripts` to your system PATH
+3. **Run with full path**: Use `python -m agentic_framework.cli` instead of `agentic-framework`
+
+## 🚀 Quick Start
 
 ### Create Your First Project
 
