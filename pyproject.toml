@@ -65,7 +65,7 @@ agentic-framework = "agentic_framework.cli:main"
 agentic-new = "agentic_framework.project:main"
 
 [tool.setuptools]
-packages = ["agentic_framework", "agentic_framework.development_standards", "agentic_framework.sub_agents", "agentic_framework.scripts"]
+packages = ["agentic_framework", "agentic_framework.development_standards", "agentic_framework.sub_agents", "agentic_framework.scripts", "agentic_framework.templates"]
 include-package-data = true
 
 [tool.setuptools.package-data]
@@ -73,6 +73,7 @@ agentic_framework = [
     "sub_agents/*.md",
     "development_standards/*.md", 
     "development_standards/*.json",
+    "templates/*.md",
     "scripts/*.py"
 ]
 
