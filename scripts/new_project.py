@@ -26,6 +26,13 @@ def start_new_project():
     print("4. ML Model Serving")
     print("5. Data Pipeline/ETL")
     print("6. CLI Tool")
+    print("7. Jupyter Notebook Analysis")
+    print("8. Desktop Application (PyQt/Tkinter)")
+    print("9. Microservice Architecture")
+    print("10. Data Science Research")
+    print("11. DevOps/Infrastructure")
+    print("12. Testing Framework")
+    print("13. Custom Project Type")
     
     project_types = {
         "1": "web-app",
@@ -33,11 +40,33 @@ def start_new_project():
         "3": "dashboard",
         "4": "ml-model",
         "5": "data-pipeline",
-        "6": "cli"
+        "6": "cli",
+        "7": "jupyter-notebook",
+        "8": "desktop-app",
+        "9": "microservice",
+        "10": "data-science",
+        "11": "devops",
+        "12": "testing",
+        "13": "custom"
     }
     
-    choice = input("\nSelect project type (1-6): ").strip()
+    choice = input("\nSelect project type (1-13): ").strip()
     project_type = project_types.get(choice, "web-app")
+    
+    # Handle custom project type
+    if project_type == "custom":
+        print("\n🛠️  Custom Project Type")
+        custom_type = input("Enter your custom project type name: ").strip()
+        if not custom_type:
+            print("Using 'custom' as project type")
+            project_type = "custom"
+        else:
+            project_type = custom_type.lower().replace(" ", "-")
+        
+        print(f"\n📋 Custom Project Setup:")
+        print(f"   Type: {project_type}")
+        print(f"   Description: Custom project - you'll need to configure manually")
+        print(f"   Framework: Basic structure with custom adaptations")
     
     print(f"\nFramework Integration:")
     print("1. Submodule (Recommended - easy updates)")

@@ -60,7 +60,13 @@ class FrameworkManager:
         subprocess.run(['git', 'init'], check=True)
         
         if use_submodule:
-            self._setup_submodule_project(project_name, project_type)
+            try:
+                self._setup_submodule_project(project_name, project_type)
+            except (subprocess.CalledProcessError, Exception) as e:
+                click.echo(f"⚠️  Submodule setup failed: {e}")
+                click.echo("🔄 Falling back to copy approach...")
+                use_submodule = False
+                self._setup_copy_project(project_name, project_type)
         else:
             self._setup_copy_project(project_name, project_type)
         
@@ -73,18 +79,25 @@ class FrameworkManager:
     
     def _setup_submodule_project(self, project_name: str, project_type: str):
         """Setup project using submodule approach."""
-        # Add framework as submodule
-        framework_url = f"file://{self.framework_path.absolute()}"
-        subprocess.run([
-            'git', 'submodule', 'add', 
-            framework_url, '.agentic-framework'
-        ], check=True)
+        # Add framework as submodule using absolute path
+        framework_path = str(self.framework_path.absolute()).replace('\\', '/')
+        
+        try:
+            subprocess.run([
+                'git', 'submodule', 'add', 
+                framework_path, '.agentic-framework'
+            ], check=True, cwd=Path.cwd())
+        except subprocess.CalledProcessError:
+            # Fallback: copy approach if submodule fails
+            click.echo("⚠️  Submodule failed, using copy approach instead...")
+            return self._setup_copy_project(project_name, project_type)
         
         # Create project structure
         self._create_project_structure()
         
         # Copy and customize templates
         self._setup_project_files(project_name, project_type, use_submodule=True)
+        self._create_project_type_specific_files(project_name, project_type)
         
         # Initial commit
         subprocess.run(['git', 'add', '.'], check=True)
@@ -106,6 +119,7 @@ class FrameworkManager:
         # Create project-specific structure
         self._create_project_structure()
         self._setup_project_files(project_name, project_type, use_submodule=False)
+        self._create_project_type_specific_files(project_name, project_type)
         
         # Initial commit
         subprocess.run(['git', 'add', '.'], check=True)
@@ -289,6 +303,416 @@ if __name__ == '__main__':
         click.echo("📤 Finally: git push origin {branch_name}")
         
         os.chdir('..')
+    
+    def _create_project_type_specific_files(self, project_name: str, project_type: str):
+        """Create project-type-specific files and structure."""
+        if project_type == "jupyter-notebook":
+            self._create_jupyter_project_files(project_name)
+        elif project_type == "desktop-app":
+            self._create_desktop_app_files(project_name)
+        elif project_type == "microservice":
+            self._create_microservice_files(project_name)
+        elif project_type == "data-science":
+            self._create_data_science_files(project_name)
+        elif project_type == "devops":
+            self._create_devops_files(project_name)
+        elif project_type == "testing":
+            self._create_testing_framework_files(project_name)
+        elif project_type == "custom":
+            self._create_custom_project_files(project_name)
+    
+    def _create_jupyter_project_files(self, project_name: str):
+        """Create Jupyter notebook project specific files."""
+        # Create notebooks directory
+        Path("notebooks").mkdir(exist_ok=True)
+        Path("notebooks/exploratory").mkdir(exist_ok=True)
+        Path("notebooks/analysis").mkdir(exist_ok=True)
+        Path("notebooks/reporting").mkdir(exist_ok=True)
+        
+        # Create sample notebook
+        sample_notebook = {
+            "cells": [
+                {
+                    "cell_type": "markdown",
+                    "metadata": {},
+                    "source": [
+                        f"# {project_name} Analysis\n",
+                        "\n",
+                        "## Project Overview\n",
+                        f"Welcome to the data analysis for {project_name}.\n",
+                        "\n",
+                        "## Setup\n",
+                        "Import required libraries and configure the environment."
+                    ]
+                },
+                {
+                    "cell_type": "code",
+                    "execution_count": None,
+                    "metadata": {},
+                    "outputs": [],
+                    "source": [
+                        "# Import required libraries\n",
+                        "import pandas as pd\n",
+                        "import numpy as np\n",
+                        "import matplotlib.pyplot as plt\n",
+                        "import seaborn as sns\n",
+                        "\n",
+                        "# Configure plotting\n",
+                        "plt.style.use('default')\n",
+                        "sns.set_palette('husl')\n",
+                        "\n",
+                        "print('Environment setup complete!')"
+                    ]
+                }
+            ],
+            "metadata": {
+                "kernelspec": {
+                    "display_name": "Python 3",
+                    "language": "python",
+                    "name": "python3"
+                },
+                "language_info": {
+                    "name": "python",
+                    "version": "3.13.0"
+                }
+            },
+            "nbformat": 4,
+            "nbformat_minor": 4
+        }
+        
+        with open('notebooks/01_initial_analysis.ipynb', 'w') as f:
+            json.dump(sample_notebook, f, indent=2)
+        
+        # Create requirements specific to Jupyter
+        jupyter_requirements = [
+            "jupyter",
+            "jupyterlab", 
+            "pandas",
+            "numpy",
+            "matplotlib",
+            "seaborn",
+            "plotly",
+            "ipywidgets"
+        ]
+        
+        with open('requirements-jupyter.txt', 'w') as f:
+            f.write('\n'.join(jupyter_requirements))
+    
+    def _create_desktop_app_files(self, project_name: str):
+        """Create desktop application specific files."""
+        # Create GUI structure
+        Path("src/gui").mkdir(parents=True, exist_ok=True)
+        Path("src/models").mkdir(exist_ok=True)
+        Path("src/controllers").mkdir(exist_ok=True)
+        Path("resources/icons").mkdir(parents=True, exist_ok=True)
+        Path("resources/styles").mkdir(exist_ok=True)
+        
+        # Create main app file
+        main_app = f'''#!/usr/bin/env python3
+"""
+{project_name} Desktop Application
+Main application entry point.
+"""
+
+import sys
+from pathlib import Path
+
+# Add src to Python path
+sys.path.insert(0, str(Path(__file__).parent / "src"))
+
+from gui.main_window import MainWindow
+
+def main():
+    """Main application entry point."""
+    import tkinter as tk
+    from tkinter import ttk
+    
+    root = tk.Tk()
+    root.title("{project_name}")
+    root.geometry("800x600")
+    
+    app = MainWindow(root)
+    
+    try:
+        root.mainloop()
+    except KeyboardInterrupt:
+        print("Application interrupted by user")
+        sys.exit(0)
+
+if __name__ == "__main__":
+    main()
+'''
+        
+        with open('main.py', 'w') as f:
+            f.write(main_app)
+        
+        # Create main window
+        main_window = '''"""
+Main application window.
+"""
+
+import tkinter as tk
+from tkinter import ttk, messagebox
+
+class MainWindow:
+    """Main application window."""
+    
+    def __init__(self, root):
+        """Initialize the main window."""
+        self.root = root
+        self.setup_ui()
+    
+    def setup_ui(self):
+        """Setup the user interface."""
+        # Create main frame
+        main_frame = ttk.Frame(self.root, padding="10")
+        main_frame.grid(row=0, column=0, sticky=(tk.W, tk.E, tk.N, tk.S))
+        
+        # Configure grid weights
+        self.root.columnconfigure(0, weight=1)
+        self.root.rowconfigure(0, weight=1)
+        main_frame.columnconfigure(0, weight=1)
+        main_frame.rowconfigure(0, weight=1)
+        
+        # Add welcome label
+        welcome_label = ttk.Label(
+            main_frame, 
+            text="Welcome to your desktop application!",
+            font=('Arial', 16, 'bold')
+        )
+        welcome_label.grid(row=0, column=0, pady=20)
+        
+        # Add sample button
+        sample_button = ttk.Button(
+            main_frame,
+            text="Click Me",
+            command=self.on_button_click
+        )
+        sample_button.grid(row=1, column=0, pady=10)
+    
+    def on_button_click(self):
+        """Handle button click event."""
+        messagebox.showinfo("Hello", "Button clicked! Start building your app.")
+'''
+        
+        with open('src/gui/main_window.py', 'w') as f:
+            f.write(main_window)
+    
+    def _create_microservice_files(self, project_name: str):
+        """Create microservice architecture files."""
+        # Create microservice structure
+        Path("services").mkdir(exist_ok=True)
+        Path("api/v1").mkdir(parents=True, exist_ok=True)
+        Path("docker").mkdir(exist_ok=True)
+        Path("k8s").mkdir(exist_ok=True)
+        
+        # Create Docker compose for development
+        docker_compose = f'''version: '3.8'
+
+services:
+  {project_name}:
+    build: .
+    ports:
+      - "8000:8000"
+    environment:
+      - ENV=development
+    volumes:
+      - ./src:/app/src
+    depends_on:
+      - redis
+      - postgres
+  
+  redis:
+    image: redis:7-alpine
+    ports:
+      - "6379:6379"
+  
+  postgres:
+    image: postgres:15-alpine
+    environment:
+      POSTGRES_DB: {project_name}
+      POSTGRES_USER: dev
+      POSTGRES_PASSWORD: devpass
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+volumes:
+  postgres_data:
+'''
+        
+        with open('docker-compose.yml', 'w') as f:
+            f.write(docker_compose)
+        
+        # Create Dockerfile
+        dockerfile = '''FROM python:3.13-slim
+
+WORKDIR /app
+
+COPY requirements.txt .
+RUN pip install --no-cache-dir -r requirements.txt
+
+COPY . .
+
+EXPOSE 8000
+
+CMD ["python", "-m", "uvicorn", "src.main:app", "--host", "0.0.0.0", "--port", "8000", "--reload"]
+'''
+        
+        with open('Dockerfile', 'w') as f:
+            f.write(dockerfile)
+    
+    def _create_data_science_files(self, project_name: str):
+        """Create data science project files."""
+        # Create data science structure
+        dirs = [
+            "data/raw", "data/processed", "data/external",
+            "notebooks/exploratory", "notebooks/analysis", "notebooks/modeling",
+            "src/data", "src/features", "src/models", "src/visualization",
+            "models", "reports/figures"
+        ]
+        
+        for dir_path in dirs:
+            Path(dir_path).mkdir(parents=True, exist_ok=True)
+        
+        # Create data science requirements
+        ds_requirements = [
+            "pandas", "numpy", "scipy", "scikit-learn",
+            "matplotlib", "seaborn", "plotly",
+            "jupyter", "jupyterlab",
+            "polars", "pyarrow",
+            "optuna", "mlflow"
+        ]
+        
+        with open('requirements-ds.txt', 'w') as f:
+            f.write('\n'.join(ds_requirements))
+    
+    def _create_devops_files(self, project_name: str):
+        """Create DevOps/Infrastructure project files."""
+        # Create DevOps structure
+        dirs = [
+            "terraform", "ansible", "docker", "k8s",
+            "scripts/deployment", "scripts/monitoring",
+            "configs/nginx", "configs/prometheus"
+        ]
+        
+        for dir_path in dirs:
+            Path(dir_path).mkdir(parents=True, exist_ok=True)
+        
+        # Create sample Terraform main.tf
+        terraform_main = f'''# {project_name} Infrastructure
+
+terraform {{
+  required_version = ">= 1.0"
+  
+  required_providers {{
+    aws = {{
+      source  = "hashicorp/aws"
+      version = "~> 5.0"
+    }}
+  }}
+}}
+
+provider "aws" {{
+  region = var.aws_region
+}}
+
+# Variables
+variable "aws_region" {{
+  description = "AWS region"
+  type        = string
+  default     = "us-west-2"
+}}
+
+variable "project_name" {{
+  description = "Project name"
+  type        = string
+  default     = "{project_name}"
+}}
+'''
+        
+        with open('terraform/main.tf', 'w') as f:
+            f.write(terraform_main)
+    
+    def _create_testing_framework_files(self, project_name: str):
+        """Create testing framework project files."""
+        # Create testing structure
+        dirs = [
+            "tests/unit", "tests/integration", "tests/e2e",
+            "tests/fixtures", "tests/utils",
+            "performance", "load_tests"
+        ]
+        
+        for dir_path in dirs:
+            Path(dir_path).mkdir(parents=True, exist_ok=True)
+        
+        # Create pytest configuration
+        pytest_ini = '''[tool:pytest]
+testpaths = tests
+python_files = test_*.py *_test.py
+python_classes = Test*
+python_functions = test_*
+addopts = 
+    --strict-markers
+    --strict-config
+    --verbose
+    --cov=src
+    --cov-report=term-missing
+    --cov-report=html
+    --cov-fail-under=80
+
+markers =
+    unit: Unit tests
+    integration: Integration tests
+    e2e: End-to-end tests
+    slow: Slow running tests
+'''
+        
+        with open('pytest.ini', 'w') as f:
+            f.write(pytest_ini)
+    
+    def _create_custom_project_files(self, project_name: str):
+        """Create custom project files with basic structure."""
+        # Create basic custom structure
+        Path("custom").mkdir(exist_ok=True)
+        
+        # Create custom project README
+        custom_readme = f'''# {project_name} - Custom Project
+
+This is a custom project created with the agentic SDLC framework.
+
+## Project Structure
+
+You have the basic agentic framework structure. Customize as needed:
+
+- `src/` - Your main source code
+- `tests/` - Your test files  
+- `docs/` - Documentation
+- `config/` - Configuration files
+- `custom/` - Custom project-specific files
+
+## Customization Guide
+
+1. Edit `project-brief.md` to define your specific requirements
+2. Modify the directory structure as needed for your project type
+3. Update `config/agentic-config.json` with your specific agents and workflow
+4. Add your custom dependencies to requirements files
+5. Use the agentic workflow: `python agentic-scripts/cli.py start`
+
+## Framework Features Available
+
+- 21 specialized AI agents for different tasks
+- Quality gates and validation
+- Workflow state management  
+- Human-in-the-loop protocols
+- Enhancement contribution system
+
+Refer to `framework-management-guide.md` for detailed usage instructions.
+'''
+        
+        with open('custom/README.md', 'w') as f:
+            f.write(custom_readme)
 
 @click.group()
 def cli():
@@ -298,7 +722,9 @@ def cli():
 @cli.command()
 @click.argument('project_name')
 @click.option('--type', 'project_type', default='web-app', 
-              type=click.Choice(['web-app', 'api', 'dashboard', 'ml-model', 'data-pipeline', 'cli']),
+              type=click.Choice(['web-app', 'api', 'dashboard', 'ml-model', 'data-pipeline', 'cli', 
+                                'jupyter-notebook', 'desktop-app', 'microservice', 'data-science', 
+                                'devops', 'testing', 'custom']),
               help='Type of project to create')
 @click.option('--copy/--submodule', default=False, 
               help='Copy framework vs use as submodule (default: submodule)')
