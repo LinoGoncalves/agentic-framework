@@ -1,0 +1,348 @@
+{
+  "python_version": "3.13+",
+  "package_manager": "uv",
+  "environment_manager": "uv",
+  "frameworks": {
+    "web": {
+      "django": {
+        "version": ">=5.0",
+        "use_case": "Full-featured web applications with admin interface and ORM",
+        "approved": true,
+        "notes": "Preferred for complex web applications"
+      },
+      "flask": {
+        "version": ">=3.0",
+        "use_case": "Lightweight web applications and microservices",
+        "approved": true,
+        "notes": "Good for simple APIs and small services"
+      },
+      "fastapi": {
+        "version": ">=0.100",
+        "use_case": "Modern async APIs with automatic OpenAPI documentation",
+        "approved": true,
+        "notes": "Preferred for REST APIs and ML model serving"
+      },
+      "streamlit": {
+        "version": ">=1.30",
+        "use_case": "Data dashboards and analytics applications",
+        "approved": true,
+        "notes": "For data visualization and prototyping"
+      }
+    },
+    "data_processing": {
+      "pandas": {
+        "version": ">=2.1",
+        "use_case": "Small to medium dataset analysis and manipulation",
+        "approved": true,
+        "notes": "Standard for data analysis up to ~1GB datasets"
+      },
+      "polars": {
+        "version": ">=0.20",
+        "use_case": "Large dataset processing with better performance",
+        "approved": true,
+        "notes": "Preferred for datasets >1GB or performance-critical operations"
+      },
+      "pyspark": {
+        "version": ">=3.5",
+        "use_case": "Big data processing and distributed computing",
+        "approved": true,
+        "notes": "Only when truly needed for large-scale distributed processing"
+      },
+      "numpy": {
+        "version": ">=1.26",
+        "use_case": "Numerical computing and array operations",
+        "approved": true,
+        "notes": "Core dependency for most data work"
+      }
+    },
+    "ml_ai": {
+      "scikit-learn": {
+        "version": ">=1.4",
+        "use_case": "Classical machine learning algorithms",
+        "approved": true,
+        "notes": "Standard for traditional ML"
+      },
+      "pytorch": {
+        "version": ">=2.1",
+        "use_case": "Deep learning and neural networks",
+        "approved": true,
+        "notes": "Preferred deep learning framework"
+      },
+      "transformers": {
+        "version": ">=4.35",
+        "use_case": "Pre-trained language models and NLP",
+        "approved": true,
+        "notes": "For NLP and transformer-based models"
+      },
+      "openai": {
+        "version": ">=1.0",
+        "use_case": "OpenAI API integration",
+        "approved": true,
+        "notes": "For GPT integration"
+      }
+    }
+  },
+  "databases": {
+    "postgresql": {
+      "driver": "psycopg2-binary",
+      "driver_version": ">=2.9",
+      "async_driver": "asyncpg",
+      "async_driver_version": ">=0.29",
+      "use_case": "Primary relational database",
+      "approved": true
+    },
+    "mongodb": {
+      "driver": "pymongo",
+      "driver_version": ">=4.6",
+      "async_driver": "motor",
+      "async_driver_version": ">=3.3",
+      "use_case": "Document storage and flexible schemas",
+      "approved": true
+    },
+    "influxdb": {
+      "driver": "influxdb-client",
+      "driver_version": ">=1.38",
+      "use_case": "Time series data storage",
+      "approved": true
+    },
+    "redis": {
+      "driver": "redis",
+      "driver_version": ">=5.0",
+      "use_case": "Caching and session storage",
+      "approved": true
+    }
+  },
+  "cloud_services": {
+    "aws": {
+      "boto3": {
+        "version": ">=1.34",
+        "use_case": "AWS services integration",
+        "approved": true
+      },
+      "botocore": {
+        "version": ">=1.34",
+        "use_case": "Low-level AWS client",
+        "approved": true
+      }
+    },
+    "azure": {
+      "azure-identity": {
+        "version": ">=1.15",
+        "use_case": "Azure authentication",
+        "approved": true
+      },
+      "azure-storage-blob": {
+        "version": ">=12.19",
+        "use_case": "Azure Blob Storage",
+        "approved": true
+      },
+      "azure-keyvault-secrets": {
+        "version": ">=4.7",
+        "use_case": "Azure Key Vault integration",
+        "approved": true
+      }
+    }
+  },
+  "testing": {
+    "pytest": {
+      "version": ">=8.0",
+      "use_case": "Primary testing framework",
+      "approved": true,
+      "required": true
+    },
+    "pytest-cov": {
+      "version": ">=4.0",
+      "use_case": "Test coverage reporting",
+      "approved": true,
+      "required": true
+    },
+    "pytest-asyncio": {
+      "version": ">=0.23",
+      "use_case": "Async test support",
+      "approved": true,
+      "notes": "Required for async code testing"
+    },
+    "pytest-mock": {
+      "version": ">=3.12",
+      "use_case": "Mocking utilities for tests",
+      "approved": true
+    },
+    "factory-boy": {
+      "version": ">=3.3",
+      "use_case": "Test data generation",
+      "approved": true
+    },
+    "httpx": {
+      "version": ">=0.26",
+      "use_case": "HTTP client for testing APIs",
+      "approved": true,
+      "notes": "Preferred over requests for new projects"
+    }
+  },
+  "code_quality": {
+    "ruff": {
+      "version": ">=0.1",
+      "use_case": "Linting and formatting",
+      "approved": true,
+      "required": true
+    },
+    "mypy": {
+      "version": ">=1.8",
+      "use_case": "Static type checking",
+      "approved": true,
+      "required": true
+    },
+    "bandit": {
+      "version": ">=1.7",
+      "use_case": "Security linting",
+      "approved": true,
+      "required": true
+    },
+    "pre-commit": {
+      "version": ">=3.6",
+      "use_case": "Git hooks for code quality",
+      "approved": true,
+      "required": true
+    }
+  },
+  "data_validation": {
+    "pydantic": {
+      "version": ">=2.5",
+      "use_case": "Data validation and settings management",
+      "approved": true,
+      "notes": "Preferred for API data validation"
+    },
+    "marshmallow": {
+      "version": ">=3.20",
+      "use_case": "Alternative serialization/validation library",
+      "approved": true,
+      "notes": "Can be used instead of pydantic when needed"
+    }
+  },
+  "async_messaging": {
+    "kafka-python": {
+      "version": ">=2.0",
+      "use_case": "Apache Kafka integration",
+      "approved": true,
+      "notes": "When Kafka is required"
+    },
+    "celery": {
+      "version": ">=5.3",
+      "use_case": "Distributed task queue",
+      "approved": true,
+      "notes": "For background job processing"
+    }
+  },
+  "monitoring_logging": {
+    "structlog": {
+      "version": ">=23.2",
+      "use_case": "Structured logging",
+      "approved": true,
+      "notes": "Preferred for production logging"
+    },
+    "prometheus-client": {
+      "version": ">=0.19",
+      "use_case": "Metrics collection",
+      "approved": true
+    },
+    "sentry-sdk": {
+      "version": ">=1.40",
+      "use_case": "Error tracking and monitoring",
+      "approved": true
+    }
+  },
+  "utilities": {
+    "python-dotenv": {
+      "version": ">=1.0",
+      "use_case": "Environment variable management",
+      "approved": true
+    },
+    "click": {
+      "version": ">=8.1",
+      "use_case": "CLI application framework",
+      "approved": true
+    },
+    "rich": {
+      "version": ">=13.7",
+      "use_case": "Rich text and beautiful formatting",
+      "approved": true
+    },
+    "typer": {
+      "version": ">=0.9",
+      "use_case": "Modern CLI framework (built on click)",
+      "approved": true,
+      "notes": "Preferred for new CLI applications"
+    }
+  },
+  "fintech_specific": {
+    "ccxt": {
+      "version": ">=4.2",
+      "use_case": "Cryptocurrency exchange integration",
+      "approved": true,
+      "notes": "For crypto trading applications"
+    },
+    "yfinance": {
+      "version": ">=0.2",
+      "use_case": "Financial data from Yahoo Finance",
+      "approved": true,
+      "notes": "For market data retrieval"
+    },
+    "quantlib": {
+      "version": ">=1.32",
+      "use_case": "Quantitative finance calculations",
+      "approved": true,
+      "notes": "For complex financial modeling"
+    }
+  },
+  "deprecated_or_discouraged": {
+    "requests": {
+      "reason": "Use httpx for new projects (better async support)",
+      "replacement": "httpx",
+      "still_allowed": true,
+      "notes": "Legacy projects can continue using, but httpx preferred"
+    },
+    "flask-restful": {
+      "reason": "Use FastAPI for new REST APIs",
+      "replacement": "fastapi",
+      "still_allowed": true
+    },
+    "pylint": {
+      "reason": "Ruff provides better performance and modern features",
+      "replacement": "ruff",
+      "still_allowed": false
+    },
+    "flake8": {
+      "reason": "Ruff provides better performance and modern features",
+      "replacement": "ruff",
+      "still_allowed": false
+    },
+    "isort": {
+      "reason": "Ruff handles import sorting",
+      "replacement": "ruff",
+      "still_allowed": false
+    },
+    "black": {
+      "reason": "Ruff format provides equivalent functionality",
+      "replacement": "ruff format",
+      "still_allowed": false
+    }
+  },
+  "version_constraints": {
+    "minimum_python": "3.13",
+    "recommended_python": "3.13",
+    "update_policy": "Minor versions should be updated quarterly, major versions require team discussion",
+    "security_updates": "Apply security patches within 1 week of release"
+  },
+  "package_sources": {
+    "primary": "PyPI",
+    "private": "Internal package repository (if applicable)",
+    "conda_forge": "For data science packages that require conda (rare exceptions)"
+  },
+  "environment_setup": {
+    "package_manager": "uv",
+    "virtual_environment": "uv venv",
+    "dependency_file": "pyproject.toml",
+    "lock_file": "uv.lock",
+    "development_dependencies": "Include in pyproject.toml [tool.uv.dev-dependencies]"
+  }
+}
