@@ -1,0 +1,28 @@
+# Development and testing dependencies
+-r requirements.txt
+
+# Testing
+pytest>=6.0
+pytest-cov
+pytest-mock
+
+# Code quality
+black
+flake8
+mypy
+isort
+pre-commit
+
+# Documentation
+sphinx
+sphinx-rtd-theme
+myst-parser
+
+# Build tools
+build
+twine
+setuptools-scm
+
+# Development utilities  
+ipython
+jupyter

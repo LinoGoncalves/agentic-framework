@@ -1,0 +1,33 @@
+include README.md
+include LICENSE
+include requirements.txt
+include dev-requirements.txt
+include pyproject.toml
+include setup.py
+
+# Framework documentation and templates (root level only)
+include *.md
+include project-brief-template.md
+include quality-gates.md
+include workflow-state-management.md
+include framework-management-guide.md
+include master-agent.md
+
+# Package data (only from within agentic_framework package)
+recursive-include agentic_framework/sub_agents *.md
+recursive-include agentic_framework/development_standards *.md *.json
+recursive-include agentic_framework/scripts *.py
+
+# Exclude unnecessary files
+global-exclude __pycache__
+global-exclude *.py[co]
+global-exclude *~
+global-exclude *.bak
+global-exclude .git*
+global-exclude .DS_Store
+
+# Exclude duplicate root-level directories from distribution
+prune development-standards
+prune sub-agents
+prune scripts
+prune original-structure

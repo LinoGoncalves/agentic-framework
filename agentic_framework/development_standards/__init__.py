@@ -1,0 +1,1 @@
+# Development standards and templates for the Agentic Framework

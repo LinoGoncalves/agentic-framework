@@ -3,25 +3,58 @@
 
 A production-ready Human-in-the-Loop (HITL) software development lifecycle framework that orchestrates AI agents with human oversight for systematic project delivery.
 
-## 🚀 Quick Start
+[![PyPI version](https://badge.fury.io/py/agentic-framework.svg)](https://badge.fury.io/py/agentic-framework)
+[![Python Support](https://img.shields.io/pypi/pyversions/agentic-framework.svg)](https://pypi.org/project/agentic-framework/)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-### Start Your First Project
+## � Installation
 
-```bash
-# Interactive wizard (recommended)
-python scripts/new_project.py
-
-# Or direct command
-python scripts/framework_manager.py init my-project --type web-app
-```
-
-### Navigate to Your Project
+### From PyPI (Recommended)
 
 ```bash
-cd my-project
-notepad project-brief.md  # Customize requirements
-python agentic-scripts/cli.py start  # Begin workflow
+pip install agentic-framework
 ```
+
+### From GitHub (Latest Development)
+
+```bash
+pip install git+https://github.com/agentic-framework/agentic-framework.git
+```
+
+### For Development
+
+```bash
+git clone https://github.com/agentic-framework/agentic-framework.git
+cd agentic-framework
+pip install -e ".[dev]"
+```
+
+## �🚀 Quick Start
+
+### Create Your First Project
+
+```bash
+# Interactive wizard (recommended for beginners)
+agentic-new
+
+# Or direct command for experienced users
+agentic-framework init my-web-app --type web-app
+```
+
+### Navigate and Start Development
+
+```bash
+cd my-web-app
+python agentic-scripts/cli.py start
+```
+
+### Available Commands
+
+After installation, you have access to these commands:
+
+- `agentic-framework init <name>` - Create a new project directly  
+- `agentic-new` - Interactive project creation wizard
+- `agentic-framework --version` - Show version information
 
 ## 🎯 What This Framework Does
 
