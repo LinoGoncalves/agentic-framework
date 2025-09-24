@@ -19,7 +19,7 @@ setup(
     long_description_content_type="text/markdown",
     author="Agentic Framework Team",
     author_email="info@agentic-framework.dev",
-    url="https://github.com/agentic-framework/agentic-framework",
+    url="https://github.com/LinoGoncalves/agentic-framework",
     packages=find_packages(),
     include_package_data=True,
     python_requires=">=3.8",

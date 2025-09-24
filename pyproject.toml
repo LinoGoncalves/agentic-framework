@@ -55,10 +55,10 @@ docs = [
 ]
 
 [project.urls]
-Homepage = "https://github.com/agentic-framework/agentic-framework"
-Documentation = "https://agentic-framework.readthedocs.io"
-Repository = "https://github.com/agentic-framework/agentic-framework.git"
-Issues = "https://github.com/agentic-framework/agentic-framework/issues"
+Homepage = "https://github.com/LinoGoncalves/agentic-framework"
+Documentation = "https://github.com/LinoGoncalves/agentic-framework#readme"
+Repository = "https://github.com/LinoGoncalves/agentic-framework.git"
+Issues = "https://github.com/LinoGoncalves/agentic-framework/issues"
 
 [project.scripts]
 agentic-framework = "agentic_framework.cli:main"
