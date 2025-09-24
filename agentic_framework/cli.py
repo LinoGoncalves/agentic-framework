@@ -4,9 +4,51 @@ CLI Entry Point for Agentic Framework
 """
 
 import sys
+import os
 import argparse
+import subprocess
+from pathlib import Path
 from .core import FrameworkManager, get_version
 from .project import ProjectInitializer
+
+
+def check_cli_installation():
+    """Check if CLI commands are properly accessible and provide guidance if not."""
+    try:
+        # Try to find the CLI scripts
+        result = subprocess.run(['which', 'agentic-framework'], capture_output=True, text=True)
+        if result.returncode == 0:
+            print("✅ CLI commands are properly installed and accessible!")
+            return True
+    except FileNotFoundError:
+        # 'which' command not found (Windows)
+        try:
+            result = subprocess.run(['where', 'agentic-framework'], capture_output=True, text=True, shell=True)
+            if result.returncode == 0:
+                print("✅ CLI commands are properly installed and accessible!")
+                return True
+        except Exception:
+            pass
+    
+    print("⚠️  CLI commands are not accessible from PATH")
+    print("\n🔧 Solutions:")
+    print("1. Use module execution: python -m agentic_framework")
+    print("2. Add Scripts directory to PATH:")
+    
+    if os.name == 'nt':  # Windows
+        import site
+        user_scripts = Path(site.getusersitepackages()).parent / "Scripts"
+        print(f"   Add this to your PATH: {user_scripts}")
+        print("   Or run: setx PATH \"%PATH%;" + str(user_scripts) + "\"")
+    else:  # Unix/Linux/macOS
+        user_base = subprocess.run([sys.executable, '-m', 'site', '--user-base'], 
+                                 capture_output=True, text=True).stdout.strip()
+        user_scripts = Path(user_base) / "bin"
+        print(f"   Add this to your PATH: {user_scripts}")
+        print(f"   Or add to ~/.bashrc: export PATH=\"{user_scripts}:$PATH\"")
+    
+    print("3. Use virtual environment (recommended for development)")
+    return False
 
 
 def create_parser():
@@ -33,6 +75,9 @@ def create_parser():
     # New command (interactive wizard)
     subparsers.add_parser("new", help="Start interactive project wizard")
     
+    # Doctor command (diagnose installation)
+    subparsers.add_parser("doctor", help="Diagnose CLI installation and provide setup guidance")
+    
     return parser
 
 
@@ -57,6 +102,12 @@ def main():
         elif args.command == "new":
             initializer = ProjectInitializer()
             initializer.start_wizard()
+            
+        elif args.command == "doctor":
+            print("🔍 Agentic Framework Installation Diagnostics")
+            print("=" * 50)
+            check_cli_installation()
+            print("\n📚 For more help, visit: https://github.com/LinoGoncalves/agentic-framework#installation")
         
     except KeyboardInterrupt:
         print("\n❌ Operation cancelled by user")

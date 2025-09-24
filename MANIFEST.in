@@ -5,6 +5,9 @@ include dev-requirements.txt
 include pyproject.toml
 include setup.py
 
+# CLI wrapper scripts for cross-platform compatibility
+include bin/*
+
 # Framework documentation and templates (root level only)
 include *.md
 include project-brief-template.md

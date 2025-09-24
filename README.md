@@ -10,25 +10,41 @@ A production-ready Human-in-the-Loop (HITL) software development lifecycle frame
 
 ## 📦 Installation
 
-### Recommended: Virtual Environment Installation
+### ✅ Recommended: Virtual Environment (Avoids PATH Issues)
 
 ```bash
-# Create and activate a virtual environment (recommended)
+# Create and activate virtual environment
 python -m venv agentic-env
-# On Windows:
+
+# Windows:
 agentic-env\Scripts\activate
-# On macOS/Linux:
+
+# macOS/Linux:
 source agentic-env/bin/activate
 
-# Install the framework
+# Install agentic-framework
+pip install git+https://github.com/LinoGoncalves/agentic-framework.git
+
+# Now CLI commands work without PATH issues:
+agentic-new
+agentic-framework init my-project
+```
+
+### 🔧 System Installation (May Require PATH Setup)
+
+```bash
 pip install git+https://github.com/LinoGoncalves/agentic-framework.git
 ```
 
-### System-wide Installation
+**If you get "command not found" errors after installation:**
 
 ```bash
-# Install system-wide (may require admin rights)
-pip install git+https://github.com/LinoGoncalves/agentic-framework.git
+# Use the diagnostic tool
+python -m agentic_framework doctor
+
+# Or use module execution as alternative:
+python -m agentic_framework new
+python -m agentic_framework init my-project
 ```
 
 ### For Development
@@ -55,8 +71,21 @@ If you get a PATH warning during installation, the CLI commands are installed bu
 # Interactive wizard (recommended for beginners)
 agentic-new
 
-# Or direct command for experienced users
+# Or direct command for experienced users  
 agentic-framework init my-web-app --type web-app
+
+# If commands not found, use module execution:
+python -m agentic_framework new
+python -m agentic_framework init my-web-app --type web-app
+```
+
+### Troubleshooting Installation
+
+```bash
+# Run diagnostics to check installation
+python -m agentic_framework doctor
+
+# This will show you exactly how to fix PATH issues
 ```
 
 ### Navigate and Start Development

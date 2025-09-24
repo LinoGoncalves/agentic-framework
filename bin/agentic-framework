@@ -1,0 +1,5 @@
+#!/bin/bash
+# Agentic Framework CLI Wrapper for Unix/macOS/Linux
+# This script helps ensure consistent CLI access across platforms
+
+python3 -m agentic_framework "$@"
