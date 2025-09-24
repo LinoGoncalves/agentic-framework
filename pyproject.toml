@@ -73,8 +73,8 @@ agentic_framework = [
     "sub_agents/*.md",
     "development_standards/*.md", 
     "development_standards/*.json",
-    "templates/*.md",
-    "scripts/*.py"
+    "scripts/*.py",
+    "templates/*.md"
 ]
 
 [tool.black]

@@ -80,6 +80,10 @@ class FrameworkManager:
         if self.development_standards_path.exists():
             shutil.copytree(self.development_standards_path, project_dir / "development-standards", dirs_exist_ok=True)
             
+        # Copy framework templates (including master-agent.md)
+        if self.templates_path.exists():
+            shutil.copytree(self.templates_path, project_dir / "templates", dirs_exist_ok=True)
+            
         # Copy CLI script
         cli_source = self.framework_path / "scripts" / "cli.py"
         if cli_source.exists():
@@ -129,6 +133,7 @@ A project created with the Agentic SDLC Framework.
 
 - `sub-agents/`: AI agent specifications
 - `development-standards/`: Coding standards and templates  
+- `templates/`: Framework templates including master-agent.md
 - `agentic-scripts/`: Framework CLI tools
 
 ## Next Steps

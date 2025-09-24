@@ -1,13 +1,13 @@
 """
-Agentic Framework Templates
+Framework Templates Module
 
-This module contains template files and documentation that are included
-with the framework installation for project initialization.
+Contains essential framework templates and documentation files 
+that are used during project initialization.
 """
 
 from pathlib import Path
 
-# Get the directory where templates are stored
+# Get the templates directory path
 TEMPLATES_DIR = Path(__file__).parent
 
 def get_template_path(template_name):
@@ -16,4 +16,4 @@ def get_template_path(template_name):
 
 def list_templates():
     """List all available template files."""
-    return [f.name for f in TEMPLATES_DIR.glob('*.md')]
+    return [f.name for f in TEMPLATES_DIR.glob("*.md")]
