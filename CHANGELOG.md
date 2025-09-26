@@ -7,6 +7,56 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.2.0] - 2025-09-27
+
+### Added
+- **🤖 Master Agent Interactive Guide** - New `agentic-framework master-agent` command
+  - Interactive menu system with 6 main options
+  - Quick Start Guide with step-by-step instructions
+  - Framework Overview explaining core concepts
+  - Guided Project Creation with expanded project types
+  - Template Browser showing all available templates
+  - Advanced Features guide for domain experts and validation
+  - Help & Resources with complete CLI reference
+- **📁 Expanded Project Types** - Increased from 4 to 15+ project types
+  - Web & API Applications: web-app, api, dashboard, microservice
+  - Data Science & ML: data-science, ml-model, data-pipeline, jupyter-notebook
+  - Development Tools: cli, desktop-app, testing, devops
+  - Flexible Options: custom, other (specify your own)
+- **🎯 Master-Agent.md at Root Level** - UX improvement for AI context access
+  - master-agent.md now placed at project root (not buried in subfolders)
+  - Easy to drag & drop into Claude, ChatGPT, etc.
+  - Automatic move during project creation with user notification
+- **🔧 Enhanced CLI Commands** - New individual entry points
+  - `agentic-master-agent` - Direct access to Master Agent guide
+  - `agentic-init <name>` - Quick project creation
+  - `agentic-doctor` - Installation diagnostics
+  - All commands work with both main CLI and individual shortcuts
+
+### Improved
+- **📖 Complete Documentation Overhaul**
+  - Updated README.md with current features and project types
+  - Refreshed INSTALL.md with Master Agent guidance
+  - Added proper project structure visualization
+  - Enhanced installation instructions with virtual environment recommendations
+- **🚀 User Experience**
+  - Interactive guidance reduces learning curve for new users
+  - Master Agent provides contextual help and explanations
+  - Clear project creation workflow with immediate next steps
+  - Better error handling and graceful exits in CLI
+
+### Fixed
+- **🔍 Master-Agent Command Availability** - Fixed issue where master-agent command wasn't available after pip install
+  - Added proper entry points in pyproject.toml
+  - Created dedicated commands.py module with individual entry point functions
+  - Bumped version to 0.2.0 to ensure fresh installation without cache issues
+
+### Technical
+- Enhanced project creation logic in core.py
+- Added comprehensive input handling with EOF protection
+- Improved CLI argument parsing and command routing
+- Updated package metadata and dependencies
+
 ## [0.1.0] - 2025-09-24
 
 ### Added

@@ -2,20 +2,33 @@
 
 ## Installation Methods
 
-### Method 1: PyPI Installation (Recommended)
+### Method 1: GitHub Installation (Latest Version - Recommended)
 
-For most users, the simplest installation method:
+Install the latest version with all the newest features:
 
 ```bash
-pip install agentic-framework
+pip install git+https://github.com/LinoGoncalves/agentic-framework.git
 ```
 
-### Method 2: GitHub Installation (Latest Features)
+### Method 2: Virtual Environment (Prevents PATH Issues)
 
-To get the latest development version:
+**Highly recommended to avoid PATH complications:**
 
 ```bash
-pip install git+https://github.com/agentic-framework/agentic-framework.git
+# Create and activate virtual environment
+python -m venv agentic-env
+
+# Windows:
+agentic-env\Scripts\activate
+
+# macOS/Linux:
+source agentic-env/bin/activate
+
+# Install framework
+pip install git+https://github.com/LinoGoncalves/agentic-framework.git
+
+# Now all commands work perfectly:
+agentic-framework master-agent
 ```
 
 ### Method 3: Development Installation
@@ -23,7 +36,7 @@ pip install git+https://github.com/agentic-framework/agentic-framework.git
 For contributing or customizing the framework:
 
 ```bash
-git clone https://github.com/agentic-framework/agentic-framework.git
+git clone https://github.com/LinoGoncalves/agentic-framework.git
 cd agentic-framework
 pip install -e ".[dev]"
 ```
@@ -34,32 +47,83 @@ After installation, verify it works:
 
 ```bash
 agentic-framework --version
+
+# Should show: agentic-framework 0.2.0 (or newer)
 ```
 
-## Usage Examples
+## 🚀 Getting Started
 
-### 1. Interactive Project Creation (Recommended for Beginners)
+### Step 1: Launch Master Agent (NEW!)
+
+The easiest way to get started:
 
 ```bash
+agentic-framework master-agent
+```
+
+This launches an interactive guide with:
+- 🚀 Quick Start Guide
+- 📚 Framework Overview  
+- 🏗️ Guided Project Creation
+- 📋 Template Browser
+- ✨ Advanced Features Info
+- 📖 Help & Resources
+
+### Step 2: Create Your First Project
+
+```bash
+# Option 1: Through Master Agent (recommended)
+agentic-framework master-agent
+# → Select option 3: Create New Project
+
+# Option 2: Interactive wizard
 agentic-new
+
+# Option 3: Direct command
+agentic-framework init my-awesome-project --type web-app
 ```
 
-This starts an interactive wizard that guides you through:
-- Project name selection
-- Project type selection (from 13 options)
-- Output directory configuration
+## 📁 Available Project Types (15+ Options!)
 
-### 2. Direct Project Creation (For Experienced Users)
+When creating projects, you can choose from these comprehensive types:
+
+### Web & API Applications
+- `web-app` - Web Application (Django/Flask/FastAPI) **[DEFAULT]**
+- `api` - REST API Service
+- `dashboard` - Data Dashboard (Streamlit)
+- `microservice` - Microservice Architecture
+
+### Data Science & ML
+- `data-science` - Data Science Research
+- `ml-model` - ML Model Serving
+- `data-pipeline` - Data Pipeline/ETL
+- `jupyter-notebook` - Jupyter Notebook Analysis
+
+### Development Tools
+- `cli` - CLI Tool
+- `desktop-app` - Desktop Application (PyQt/Tkinter)
+- `testing` - Testing Framework
+- `devops` - DevOps/Infrastructure
+
+### Flexible Options
+- `custom` - Custom Project Type
+- `other` - Specify your own completely custom type
+
+### Usage Examples
 
 ```bash
-# Create a web application
-agentic-framework init my-web-app --type web-app
+# Web application (default)
+agentic-framework init my-webapp
 
-# Create an API service
-agentic-framework init my-api --type api
+# Machine learning project
+agentic-framework init ml-classifier --type ml-model
 
-# Create with custom output directory
-agentic-framework init my-project --type dashboard --output /path/to/projects
+# Data dashboard
+agentic-framework init sales-dashboard --type dashboard
+
+# Custom project type
+agentic-framework init my-project --type other
+# Will prompt: "Enter your custom project type: blockchain-dapp"
 ```
 
 ### 3. Working with Created Projects
@@ -68,22 +132,36 @@ After creating a project:
 
 ```bash
 cd my-web-app
-ls  # You'll see: project-brief.md, README.md, sub-agents/, development-standards/, agentic-scripts/
+After creation, your project will have:
 
+```
+cd my-web-app
+ls  # You'll see: master-agent.md, project-brief.md, README.md, sub-agents/, etc.
+
+# 🎯 KEY FEATURE: master-agent.md is at ROOT LEVEL for easy AI context access!
+```
+
+### Working with Your Project
+
+```bash
 # Customize your requirements
 notepad project-brief.md  # Windows
 vim project-brief.md      # Linux/Mac
+
+# Add master-agent.md to Claude/ChatGPT context (it's right there at root level!)
+# Just drag master-agent.md into your AI chat
 
 # Start the agentic workflow
 python agentic-scripts/cli.py start
 ```
 
-## Project Structure Explained
+## 📂 Project Structure Explained
 
-After creation, your project will have:
+After creation, your project will have this organized structure:
 
 ```
 my-project/
+├── master-agent.md               # 🎯 Master orchestration guide (AT ROOT!)
 ├── project-brief.md              # Your requirements and specifications
 ├── README.md                     # Project-specific README
 ├── sub-agents/                   # AI agent specifications
@@ -95,25 +173,15 @@ my-project/
 │   ├── coding_styleguide.md
 │   ├── testing_strategy.md
 │   └── ... (comprehensive standards)
+├── templates/                    # Framework templates
+│   ├── project-brief-template.md
+│   ├── quality-gates.md
+│   └── ... (workflow templates)
 └── agentic-scripts/             # Framework tools
     └── cli.py                   # Project management CLI
 ```
 
-## Supported Project Types
-
-1. **web-app** - Web Applications (Django/Flask/FastAPI)
-2. **api** - REST API Services
-3. **dashboard** - Data Dashboards (Streamlit)
-4. **ml-model** - ML Model Serving
-5. **data-pipeline** - Data Pipeline/ETL
-6. **cli** - CLI Tools
-7. **jupyter-notebook** - Jupyter Notebook Analysis
-8. **desktop-app** - Desktop Applications (PyQt/Tkinter)
-9. **microservice** - Microservice Architecture
-10. **data-science** - Data Science Research
-11. **devops** - DevOps/Infrastructure
-12. **testing** - Testing Frameworks
-13. **custom** - Custom Project Types
+**✨ Special Feature:** The `master-agent.md` file is strategically placed at the project root level, making it incredibly easy to add to AI context (Claude, ChatGPT, etc.) when working on your project.
 
 ## Troubleshooting
 

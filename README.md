@@ -65,6 +65,24 @@ If you get a PATH warning during installation, the CLI commands are installed bu
 
 ## 🚀 Quick Start
 
+### Get Interactive Guidance (New!)
+
+```bash
+# Start the Master Agent - Interactive guide for framework usage
+agentic-framework master-agent
+
+# Or if you have PATH issues:
+python -m agentic_framework master-agent
+```
+
+The Master Agent provides:
+- 🚀 Quick Start Guide - Get up and running fast
+- 📚 Framework Overview - Learn about capabilities  
+- 🏗️ Create New Project - Guided project creation
+- 📋 View Templates - Explore available templates
+- ✨ Advanced Features - Domain experts, validation
+- 📖 Help & Resources - Documentation and support
+
 ### Create Your First Project
 
 ```bash
@@ -99,9 +117,16 @@ python agentic-scripts/cli.py start
 
 After installation, you have access to these commands:
 
+- `agentic-framework master-agent` - **NEW!** Interactive guide and help system
 - `agentic-framework init <name>` - Create a new project directly  
 - `agentic-new` - Interactive project creation wizard
+- `agentic-framework doctor` - Diagnose installation and PATH issues
 - `agentic-framework --version` - Show version information
+
+**Individual Command Shortcuts:**
+- `agentic-master-agent` - Direct access to Master Agent guide
+- `agentic-init <name>` - Quick project creation
+- `agentic-doctor` - Quick diagnostics
 
 ## 🎯 What This Framework Does
 
@@ -129,38 +154,72 @@ Transform complex software projects into manageable, AI-assisted workflows:
 
 ## 📁 Project Types Supported
 
-Choose from 13 specialized project templates:
+Choose from **15+ comprehensive project templates**, including custom options:
 
-1. **Web Applications** - Full-stack web development with modern frameworks
-2. **Mobile Apps** - iOS/Android development with cross-platform support  
-3. **Data Science** - ML/AI projects with proper MLOps integration
-4. **Cloud Infrastructure** - IaC templates for AWS/Azure/GCP
-5. **API Services** - Microservices and REST API development
-6. **Desktop Applications** - Cross-platform desktop app frameworks
-7. **IoT Solutions** - Internet of Things device integration
-8. **Blockchain Projects** - Smart contracts and DeFi applications
-9. **Game Development** - 2D/3D game engines and frameworks
-10. **DevOps Automation** - CI/CD pipelines and infrastructure automation
-11. **Security Tools** - Cybersecurity utilities and penetration testing
-12. **Analytics Dashboards** - Business intelligence and data visualization
-13. **Research Projects** - Academic and R&D project structures
+### **🌐 Web & API Applications**
+- **web-app** - Web Application (Django/Flask/FastAPI)
+- **api** - REST API Service
+- **dashboard** - Data Dashboard (Streamlit)
+- **microservice** - Microservice Architecture
 
-## 🚀 Architecture Overview
+### **🤖 Data Science & ML**
+- **data-science** - Data Science Research
+- **ml-model** - ML Model Serving
+- **data-pipeline** - Data Pipeline/ETL
+- **jupyter-notebook** - Jupyter Notebook Analysis
+
+### **🛠️ Development Tools**
+- **cli** - CLI Tool
+- **desktop-app** - Desktop Application (PyQt/Tkinter)
+- **testing** - Testing Framework
+- **devops** - DevOps/Infrastructure
+
+### **🎯 Flexible Options**
+- **custom** - Custom Project Type
+- **other** - Specify your own completely custom type
+
+**Plus:** The framework adapts to your specific needs with customizable templates and standards.
+
+## 🏗️ Architecture Overview
+
+```mermaid
+graph TD
+    A[Master Agent] --> B[Sub-Agents]
+    A --> C[Quality Gates]
+    A --> D[Development Standards]
+    B --> E[Business Analyst]
+    B --> F[Software Developer] 
+    B --> G[QA Engineer]
+    B --> H[DevOps Engineer]
+    B --> I[... 17 more agents]
+```
+
+## 📂 Created Project Structure
+
+When you create a new project, you get this organized structure:
 
 ```
-Agentic Framework
-├── Master Agent (Orchestrator)
-├── Sub-Agents (21 Specialists)
-│   ├── Business Analyst
-│   ├── Solutions Architect  
-│   ├── Software Developer
-│   ├── QA Engineer
-│   ├── DevOps Engineer
-│   └── ... (16 more)
-├── Development Standards
-├── Quality Gates
-└── Template Library
+my-project/
+├── master-agent.md              # 🎯 Master orchestration guide (ROOT LEVEL!)
+├── project-brief.md             # Project requirements and planning
+├── README.md                    # Project documentation
+├── sub-agents/                  # AI agent specifications
+│   ├── business-analyst-agent.md
+│   ├── software-developer-agent.md
+│   └── ... (19 more specialized agents)
+├── development-standards/       # Coding standards and templates
+│   ├── coding_styleguide.md
+│   ├── api_design_patterns.md
+│   └── ... (complete standards library)
+├── templates/                   # Framework templates
+│   ├── project-brief-template.md
+│   ├── quality-gates.md
+│   └── ... (workflow templates)
+└── agentic-scripts/            # CLI tools
+    └── cli.py                  # Framework automation tools
 ```
+
+**Key Feature:** `master-agent.md` is placed at the project root for easy access when adding to AI context (Claude, ChatGPT, etc.)
 
 ## 🔧 Advanced Usage
 
