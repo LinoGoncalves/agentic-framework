@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "agentic-framework"
-version = "0.1.0"
+version = "0.2.0"
 description = "A production-ready Human-in-the-Loop (HITL) software development lifecycle framework"
 readme = "README.md"
 requires-python = ">=3.8"
@@ -63,6 +63,9 @@ Issues = "https://github.com/LinoGoncalves/agentic-framework/issues"
 [project.scripts]
 agentic-framework = "agentic_framework.cli:main"
 agentic-new = "agentic_framework.project:main"
+agentic-init = "agentic_framework.commands:main_init"
+agentic-doctor = "agentic_framework.commands:main_doctor"
+agentic-master-agent = "agentic_framework.commands:main_master_agent"
 
 [tool.setuptools]
 packages = ["agentic_framework", "agentic_framework.development_standards", "agentic_framework.sub_agents", "agentic_framework.scripts", "agentic_framework.templates"]
