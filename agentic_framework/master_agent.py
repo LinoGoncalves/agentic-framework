@@ -110,6 +110,12 @@ class MasterAgent:
         print("   ✅ Framework templates")
         print("   ✅ Ready-to-use CLI tools")
         
+        print("\n📦 Supported Project Types:")
+        print("   • Web apps, APIs, dashboards, ML models")
+        print("   • Data pipelines, CLI tools, microservices")
+        print("   • Desktop apps, DevOps, testing frameworks")
+        print("   • Custom types and more!")
+        
         create_now = input("\n🤔 Would you like to create a project now? (y/n): ").lower().strip()
         if create_now in ['y', 'yes']:
             self.create_new_project()
@@ -159,14 +165,27 @@ class MasterAgent:
                 return
                 
             print("\n🎯 Available project types:")
-            print("   • web-app (default) - Web application")
-            print("   • api - REST API service")
-            print("   • data-science - Data analysis project")
-            print("   • ml-project - Machine learning project")
+            print("   • web-app (default) - Web Application (Django/Flask/FastAPI)")
+            print("   • api - REST API Service")
+            print("   • dashboard - Data Dashboard (Streamlit)")
+            print("   • ml-model - ML Model Serving")
+            print("   • data-pipeline - Data Pipeline/ETL")
+            print("   • cli - CLI Tool")
+            print("   • jupyter-notebook - Jupyter Notebook Analysis")
+            print("   • desktop-app - Desktop Application (PyQt/Tkinter)")
+            print("   • microservice - Microservice Architecture")
+            print("   • data-science - Data Science Research")
+            print("   • devops - DevOps/Infrastructure")
+            print("   • testing - Testing Framework")
+            print("   • custom - Custom Project Type")
+            print("   • other - Other (specify your own)")
             
-            project_type = input("\n📋 Project type (press Enter for web-app): ").strip()
+            project_type = input("\n📋 Project type (press Enter for web-app): ").strip().lower()
             if not project_type:
                 project_type = "web-app"
+            elif project_type == "other":
+                custom_type = input("📝 Enter your custom project type: ").strip()
+                project_type = custom_type if custom_type else "custom"
             
             print(f"\n🚀 Creating project '{project_name}' of type '{project_type}'...")
             try:
