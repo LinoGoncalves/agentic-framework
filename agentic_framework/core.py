@@ -84,6 +84,13 @@ class FrameworkManager:
         if self.templates_path.exists():
             shutil.copytree(self.templates_path, project_dir / "templates", dirs_exist_ok=True)
             
+            # Move master-agent.md to project root for easy access
+            master_agent_src = project_dir / "templates" / "master-agent.md"
+            master_agent_dst = project_dir / "master-agent.md"
+            if master_agent_src.exists():
+                shutil.move(str(master_agent_src), str(master_agent_dst))
+                print("📋 Moved master-agent.md to project root for easy AI context access")
+            
         # Copy CLI script
         cli_source = self.framework_path / "scripts" / "cli.py"
         if cli_source.exists():
@@ -131,9 +138,10 @@ A project created with the Agentic SDLC Framework.
 
 ## Framework Components
 
+- `master-agent.md`: Master orchestration guide (copied to root for easy AI context access)
 - `sub-agents/`: AI agent specifications
 - `development-standards/`: Coding standards and templates  
-- `templates/`: Framework templates including master-agent.md
+- `templates/`: Framework templates and project files
 - `agentic-scripts/`: Framework CLI tools
 
 ## Next Steps

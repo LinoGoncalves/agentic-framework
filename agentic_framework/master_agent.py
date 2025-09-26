@@ -248,6 +248,8 @@ class MasterAgent:
         
         print("\n💡 Templates are automatically included in new projects")
         print("   and can be customized for your specific needs.")
+        print("\n✨ Special Note: master-agent.md is placed at project root")
+        print("   for easy access when adding to AI context (Claude, etc.)")
     
     def advanced_features(self):
         """Show advanced framework features and enhancements."""
