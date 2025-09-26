@@ -249,18 +249,19 @@ agentic-framework enhance --add-standards --add-agents
 ## 📖 Documentation
 
 - [Installation Guide](INSTALL.md) - Detailed setup instructions
+- [Repository Structure Guide](REPOSITORY_STRUCTURE.md) - GitHub browsing vs project structure
 - [Framework Management Guide](framework-management-guide.md) - Core concepts
 - [Master Agent Guide](master-agent.md) - Orchestration workflows  
 - [Quality Gates](quality-gates.md) - Validation and testing strategies
-- [Development Standards](development-standards/) - Complete standards library
+- [Development Standards](agentic_framework/development_standards/) - Complete standards library
 
 ## 🤝 Contributing
 
 We welcome contributions! See our [contributing guidelines](CONTRIBUTING.md) for details on:
 
-- Adding new sub-agents
+- Adding new sub-agents (see [agentic_framework/sub_agents/](agentic_framework/sub_agents/))
 - Creating project templates  
-- Improving development standards
+- Improving development standards (see [agentic_framework/development_standards/](agentic_framework/development_standards/))
 - Enhancing quality gates
 
 ## 📄 License
