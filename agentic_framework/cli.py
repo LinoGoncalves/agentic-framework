@@ -78,6 +78,9 @@ def create_parser():
     # Doctor command (diagnose installation)
     subparsers.add_parser("doctor", help="Diagnose CLI installation and provide setup guidance")
     
+    # Master Agent command (guided experience)
+    subparsers.add_parser("master-agent", help="Activate Master Agent - Interactive guide for framework usage")
+    
     return parser
 
 
@@ -108,6 +111,11 @@ def main():
             print("=" * 50)
             check_cli_installation()
             print("\n📚 For more help, visit: https://github.com/LinoGoncalves/agentic-framework#installation")
+            
+        elif args.command == "master-agent":
+            from .master_agent import MasterAgent
+            master_agent = MasterAgent()
+            master_agent.start_interactive_guide()
         
     except KeyboardInterrupt:
         print("\n❌ Operation cancelled by user")
