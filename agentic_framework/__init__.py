@@ -5,7 +5,7 @@ A production-ready Human-in-the-Loop (HITL) software development lifecycle frame
 that orchestrates AI agents with human oversight for systematic project delivery.
 """
 
-__version__ = "0.2.2"
+__version__ = "0.2.3"
 __author__ = "Agentic Framework Team"
 __email__ = "info@agentic-framework.dev"
 

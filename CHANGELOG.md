@@ -7,6 +7,22 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.2.3] - 2025-09-27
+
+### Fixed  
+- **🚨 CRITICAL: Strengthened HITL Protocol Enforcement in master-agent.md**
+  - Added mandatory HITL activation section at the very beginning of file
+  - Enhanced all Core Directives with explicit human approval checkpoints
+  - Updated Project Kick-off Command with 4-step HITL activation requirement
+  - Added final protocol reminder section with specific examples of required approvals
+  - AI assistants must now explicitly confirm HITL activation before any work
+  - Prevents autonomous operation - forces coordination and planning role only
+
+### Impact
+- **AI assistants loading master-agent.md will immediately activate strict HITL mode**
+- **No more autonomous decisions - all critical actions require explicit human approval**
+- **Clear examples provided for what requires human approval (code, architecture, deployment, etc.)**
+
 ## [0.2.2] - 2025-09-27
 
 ### Fixed
