@@ -1,6 +1,17 @@
 
 # 🚨 CRITICAL: HUMAN-IN-THE-LOOP (HITL) PROTOCOL ACTIVATION
 
+<!-- 
+📝 FILE PURPOSE: Complete Project Template Master Agent
+This is the comprehensive master-agent.md template that gets deployed to every user project.
+Use this for full project orchestration with detailed workflows and complete agent coordination.
+
+🆚 VS .github/chatmodes/Master Agent.md: That file is a lightweight VS Code chat mode version
+optimized for GitHub Copilot integration - concise and chat-focused.
+
+Both files maintain the same HITL protocols but serve different contexts.
+-->
+
 **MANDATORY IMMEDIATE ACTION REQUIRED:**
 
 Before proceeding with ANY task, you MUST:
