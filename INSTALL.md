@@ -140,7 +140,7 @@ After creation, your project will have:
 cd my-web-app
 ls  # You'll see: master-agent.md, project-brief.md, README.md, sub-agents/, etc.
 
-# 🎯 KEY FEATURE: master-agent.md is at ROOT LEVEL for easy AI context access!
+# 🎯 KEY FEATURE: Development standards are in .github/development_standards/ following VS Code/GitHub best practices!
 ```
 
 ### Working with Your Project

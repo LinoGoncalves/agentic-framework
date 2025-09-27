@@ -163,9 +163,9 @@ Each project includes specifications for:
 
 ### Development Standards
 Your project includes comprehensive standards for:
-- Coding style guides
+- Coding style guides (in `.github/development_standards/` following VS Code/GitHub best practices)
 - API design patterns
-- Security checklists
+- Security checklists  
 - Testing strategies
 - MLOps pipelines
 

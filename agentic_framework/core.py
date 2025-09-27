@@ -28,7 +28,7 @@ class FrameworkManager:
             
         self.templates_path = self.framework_path / "templates"
         self.sub_agents_path = self.framework_path / "sub_agents"
-        self.development_standards_path = self.framework_path / "development_standards"
+        self.development_standards_path = self.framework_path.parent / ".github" / "development_standards"
     
     def init_project(self, project_name: str, project_type: str = "web-app", 
                     output_dir: Optional[str] = None) -> Path:

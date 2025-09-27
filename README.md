@@ -150,7 +150,7 @@ Transform complex software projects into manageable, AI-assisted workflows:
 - **Quality Gates**: Automated validation at key project milestones
 - **Template Library**: Pre-configured project structures and standards
 
-### Development Standards Suite
+- **Development Standards Suite**: Comprehensive templates and guidelines in `.github/development_standards/`
 - **Coding Standards**: Style guides, security checklists, testing strategies
 - **API Design**: RESTful patterns, documentation templates, versioning
 - **Cloud Architecture**: Infrastructure as Code, security policies, tagging

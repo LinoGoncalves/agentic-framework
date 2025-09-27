@@ -7,6 +7,32 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.3.0] - 2025-09-27
+
+### Changed
+- **📁 MAJOR: Restructured to Follow VS Code/GitHub Best Practices**
+  - **BREAKING:** Moved `development_standards/` from `agentic_framework/` to `.github/development_standards/`
+  - Added `.github/copilot-instructions.md` for VS Code Copilot integration (per official documentation)
+  - Created `.github/chatmodes/Master Agent.md` custom chat mode for proper HITL coordination
+  - Updated `core.py` to reference new `.github/development_standards/` location
+  - Aligned with VS Code Copilot documentation requirements for project structure
+
+### Added
+- **🤖 VS Code Integration:** New `.github/copilot-instructions.md` with comprehensive coding guidelines
+- **💬 Custom Chat Mode:** Master Agent chat mode in `.github/chatmodes/` for HITL coordination
+- **📋 Enhanced Guidelines:** HITL protocols embedded in all GitHub configuration files
+
+### Impact
+- **Framework now follows official VS Code/GitHub conventions**
+- **Better VS Code Copilot integration and recognition**
+- **Professional GitHub repository structure**
+- **Improved discoverability of development standards**
+
+### Migration Notes
+- **BREAKING CHANGE:** Projects created with v0.2.x may need to update paths to development standards
+- New projects automatically use `.github/development_standards/` structure
+- Existing projects should update references from `development_standards/` to `.github/development_standards/`
+
 ## [0.2.3] - 2025-09-27
 
 ### Fixed  
