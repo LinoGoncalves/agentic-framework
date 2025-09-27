@@ -23,12 +23,14 @@ class MasterAgent:
         while True:
             try:
                 choice = self.display_main_menu()
+                result = None
+                
                 if choice == "1":
                     self.quick_start_guide()
                 elif choice == "2":
                     self.framework_overview()
                 elif choice == "3":
-                    self.create_new_project()
+                    result = self.create_new_project()
                 elif choice == "4":
                     self.view_templates()
                 elif choice == "5":
@@ -41,7 +43,13 @@ class MasterAgent:
                 else:
                     print("❌ Invalid choice. Please try again.")
                 
-                if choice != "0":
+                # If a method returned "exit", break the loop
+                if result == "exit":
+                    self.display_goodbye()
+                    break
+                
+                # Only ask to continue if not exiting
+                if choice != "0" and result != "exit":
                     try:
                         input("\n✨ Press Enter to continue...")
                     except EOFError:
@@ -201,12 +209,18 @@ class MasterAgent:
             print(f"\n🚀 Creating project '{project_name}' of type '{project_type}'...")
             try:
                 project_dir = self.framework_manager.init_project(project_name, project_type)
-                print("\n✅ Project created successfully!")
+                print("✅ Project created successfully!")
                 print(f"📂 Location: {project_dir}")
                 
                 print("\n🎯 Next steps:")
                 print(f"   cd {project_name}")
                 print("   python agentic-scripts/cli.py start")
+                
+                # Ask if user wants to continue or exit
+                continue_choice = input("\n🤔 Would you like to create another project or return to main menu? (y/n): ").strip().lower()
+                if continue_choice in ['n', 'no']:
+                    print("\n✨ Happy coding! Your project is ready to go.")
+                    return "exit"  # Signal to exit
                 
             except Exception as e:
                 print(f"❌ Error creating project: {e}")
@@ -215,6 +229,13 @@ class MasterAgent:
             # Interactive wizard
             print("\n🧙 Starting interactive project wizard...")
             self.project_initializer.start_wizard()
+            
+            # Check if user wants to exit after wizard completion
+            if hasattr(self.project_initializer, '_wizard_completed') and self.project_initializer._wizard_completed:
+                continue_choice = input("\n🤔 Would you like to do something else or exit? (continue/exit): ").strip().lower()
+                if continue_choice in ['exit', 'e', 'quit', 'q']:
+                    print("\n✨ Happy coding! Your project is ready to go.")
+                    return "exit"  # Signal to exit
         else:
             print("❌ Invalid choice. Returning to main menu.")
     
