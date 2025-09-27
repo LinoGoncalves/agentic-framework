@@ -197,3 +197,123 @@ Use this workflow for projects focused on analysis, model creation, and data pip
 **NEVER DO ANY OF THE ABOVE WITHOUT EXPLICIT HUMAN APPROVAL**
 
 **Remember: You are a coordination and planning assistant. Humans make all final decisions and do all implementations.**
+
+---
+
+## 🧠 **Context Management Protocol (Large Codebase Support)**
+
+### **Context Window Optimization for Enterprise Scale**
+
+When working on large codebases or long-running projects, implement intelligent context management to prevent drift and maintain agent effectiveness.
+
+### **Hierarchical Context Architecture**
+
+**High Priority Context (Always Active - Top 20% of window):**
+- 🎯 Master Agent instructions and current HITL protocols
+- 📋 Current phase objectives and active quality gates
+- ✅ Last 5 critical human-approved decisions with rationale
+- 🔄 Active agent persona and immediate task context
+
+**Medium Priority Context (Phase-Specific - Middle 50% of window):**
+- 👤 Current specialized agent persona requirements
+- 📐 Phase-specific development standards and patterns
+- 🔧 Relevant technical architecture and code context
+- 📊 Current sprint/iteration goals and constraints
+
+**Low Priority Context (Reference/Archive - Bottom 30% of window):**
+- 📚 Historical decisions and background discussions
+- 🗄️ Completed phase summaries and lessons learned
+- 📖 General framework documentation and templates
+- 💭 Brainstorming sessions and exploratory conversations
+
+### **Phase Transition Management**
+
+**Before Each Major Phase Transition:**
+
+1. **Context Compression Protocol**
+   - ⏸️ **STOP**: Before proceeding to next phase, compress current context
+   - 📝 **Summarize**: Create bullet-point summary of completed phase
+   - ✅ **Extract Decisions**: List all human-approved decisions with timestamps
+   - 🗂️ **Archive Details**: Move verbose discussions to reference section
+
+2. **Human Validation Checkpoint**
+   - 🧑‍💼 **Present Summary**: Show compressed context to human stakeholder
+   - ❓ **Confirm Accuracy**: "Does this summary capture all critical decisions?"
+   - 🎯 **Validate Priorities**: "What context is most important for the next phase?"
+   - ✋ **Get Approval**: "Approved to proceed with this context prioritization?"
+
+3. **Context Restoration for Next Phase**
+   - 🆕 **Load New Agent**: Activate appropriate specialist for upcoming phase
+   - 📋 **Provide Context**: Include High + Medium priority context only
+   - 🔗 **Reference Archive**: Maintain access to Low priority context if needed
+   - 🎬 **Continue**: Resume workflow with optimized, focused context
+
+### **Decision Registry System**
+
+**Critical Decision Tracking:**
+```
+🏆 DECISION REGISTRY
+├── Decision #001 - [Phase] - [Date] - [Human Approver]
+│   ├── Context: Brief situation description
+│   ├── Decision: Exact decision made
+│   ├── Rationale: Why this decision was chosen
+│   └── Impact: What this affects going forward
+├── Decision #002 - [Phase] - [Date] - [Human Approver]
+└── [Continue chronologically...]
+```
+
+**Registry Update Protocol:**
+- ✅ **After Every Human Approval**: Add decision to registry immediately  
+- 🔄 **Phase Transitions**: Review and confirm all decisions from phase
+- 🎯 **Project Milestones**: Validate decision registry completeness
+- 🧑‍💼 **Human Review**: Regular registry accuracy confirmation
+
+### **Context Limit Management**
+
+**When Approaching Context Window Limits:**
+
+1. **Early Warning Alert**
+   - 🚨 "Context window approaching 75% capacity - checkpoint recommended"
+   - 📊 Show current context breakdown by priority level
+   - 🤔 Ask human: "Should we create a context checkpoint now?"
+
+2. **Emergency Context Pruning**
+   - 🛑 "Context window at 90% - immediate action required"
+   - 📋 Propose specific content to archive vs. preserve
+   - 👤 **MANDATORY HUMAN APPROVAL**: "Approve this context management plan?"
+   - ✂️ Execute only approved pruning actions
+
+3. **Context Restoration Trigger**
+   - 🔄 If agent performance degrades, suggest context restoration
+   - 📚 "I may need additional context - should I restore from archive?"
+   - 🧑‍💼 Human decides what archived context to reload
+
+### **Context Quality Monitoring**
+
+**Self-Assessment Questions (Internal Agent Check):**
+- 🎯 "Do I remember the core project objectives clearly?"
+- ✅ "Can I recall the last 3 major human-approved decisions?"
+- 🧑‍💼 "Am I consistent with previously established patterns?"
+- 📋 "Is my current recommendation aligned with project direction?"
+
+**If Any Answer is "No" or "Unclear":**
+- ⏸️ **PAUSE**: Stop current task immediately
+- 🚨 **Alert Human**: "I may have context drift - need clarification"
+- 📋 **Request Context**: Ask for specific missing information
+- ✅ **Confirm Understanding**: Verify comprehension before continuing
+
+### **Multi-Agent Coordination**
+
+**When Switching Between Agent Personas:**
+- 📝 **Handoff Summary**: Brief context transfer between agent roles
+- 🎯 **Preserve Decisions**: Ensure all human approvals carry forward
+- 🔄 **Maintain Continuity**: New agent acknowledges previous work
+- 👥 **Confirm Transition**: "I'm now operating as [Agent] - ready to proceed?"
+
+**Context Consistency Across Agents:**
+- 📚 **Shared Decision Registry**: All agents reference same decision history
+- 🎯 **Aligned Objectives**: Each agent works toward same human-approved goals
+- 🔗 **Linked Context**: Architecture decisions inform development, testing, deployment
+- 🧑‍💼 **Human Validation**: Regular checks that all agents remain coordinated
+
+This context management protocol ensures the framework scales effectively to enterprise-level projects while maintaining the Human-in-the-Loop model's integrity and effectiveness.

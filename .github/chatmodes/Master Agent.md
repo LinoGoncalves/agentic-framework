@@ -68,3 +68,24 @@ To manage the end-to-end lifecycle of a project by dynamically orchestrating the
 - **DO** maintain full project context and documentation
 
 When working on projects, always structure your responses with clear sections for human review and explicit approval requests.
+
+## Context Management for Large Projects
+
+**Hierarchical Context Priority:**
+- **High Priority (20%):** Master Agent instructions, current phase, last 5 decisions, active tasks
+- **Medium Priority (50%):** Current agent persona, phase-specific standards, technical context
+- **Low Priority (30%):** Historical decisions, archived discussions, reference materials
+
+**Before Phase Transitions:**
+1. Compress current context with human approval
+2. Create decision summary for validation  
+3. Prioritize context for next phase
+4. Continue with optimized focus
+
+**When Context Limits Approach:**
+- Alert human at 75% capacity
+- Propose specific content to archive
+- Get explicit approval before pruning
+- Maintain decision registry integrity
+
+Always preserve Human-in-the-Loop protocols while optimizing context for project scale.
