@@ -43,17 +43,19 @@ class FrameworkManager:
             Path to created project directory
         """
         if output_dir:
-            project_dir = Path(output_dir) / project_name
+            workspace_dir = Path(output_dir)
+            project_dir = workspace_dir / project_name
         else:
-            project_dir = Path.cwd() / project_name
+            workspace_dir = Path.cwd()
+            project_dir = workspace_dir / project_name
             
         print(f"🚀 Creating project '{project_name}' of type '{project_type}'...")
         
         # Create project structure
         project_dir.mkdir(exist_ok=True)
         
-        # Copy framework files
-        self._copy_framework_files(project_dir)
+        # Copy framework files to project and workspace
+        self._copy_framework_files(project_dir, workspace_dir)
         
         # Create project-specific files
         self._create_project_files(project_dir, project_name, project_type)
@@ -66,27 +68,27 @@ class FrameworkManager:
         
         return project_dir
     
-    def _copy_framework_files(self, project_dir: Path):
-        """Copy framework files to project directory."""
+    def _copy_framework_files(self, project_dir: Path, workspace_dir: Path):
+        """Copy framework files to project directory and workspace."""
         # Create agentic-scripts directory
         scripts_dir = project_dir / "agentic-scripts"
         scripts_dir.mkdir(exist_ok=True)
         
-        # Create .github directory structure (VS Code/GitHub best practices)
-        github_dir = project_dir / ".github"
+        # Create .github directory structure at WORKSPACE level (VS Code/GitHub best practices)
+        github_dir = workspace_dir / ".github"
         github_dir.mkdir(exist_ok=True)
         
-        # Copy sub-agents
+        # Copy sub-agents to project
         if self.sub_agents_path.exists():
             shutil.copytree(self.sub_agents_path, project_dir / "sub-agents", dirs_exist_ok=True)
         
-        # Copy development standards to .github/development_standards/
+        # Copy development standards to .github/development_standards/ at workspace level
         if self.development_standards_path.exists():
             target_standards_path = github_dir / "development_standards"
             shutil.copytree(self.development_standards_path, target_standards_path, dirs_exist_ok=True)
             print("📁 Copied development standards to .github/development_standards/ (VS Code/GitHub compliant)")
             
-        # Copy .github files from framework templates
+        # Copy .github files from framework templates to workspace level
         template_github_path = self.templates_path / ".github"
         if template_github_path.exists():
             # Copy copilot-instructions.md
