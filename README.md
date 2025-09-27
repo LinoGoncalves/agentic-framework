@@ -1,7 +1,9 @@
 
 # Agentic SDLC Framework
 
-A production-ready Human-in-the-Loop (HITL) software development lifecycle framework that orchestrates AI agents with human oversight for systematic project delivery.
+A production-ready Human-in-the-Loop (HITL) software development lifecycle framework that orchestrates AI agents with **mandatory human oversight** for systematic project delivery.
+
+**🚨 CRITICAL: This framework operates under HITL protocols - AI agents coordinate WITH humans, requiring approval at all quality gates!**
 
 [![GitHub Release](https://img.shields.io/github/v/release/LinoGoncalves/agentic-framework)](https://github.com/LinoGoncalves/agentic-framework/releases)
 [![Python Support](https://img.shields.io/badge/python-3.9+-blue.svg)](https://www.python.org/downloads/)
@@ -82,6 +84,8 @@ The Master Agent provides:
 - 📋 View Templates - Explore available templates
 - ✨ Advanced Features - Domain experts, validation
 - 📖 Help & Resources - Documentation and support
+
+**⚠️ IMPORTANT: The Master Agent requires AI assistant integration (Claude, ChatGPT, etc.) to function properly - see the Getting Started guide for setup instructions. HITL protocols ensure all decisions require human approval.**
 
 ### Create Your First Project
 

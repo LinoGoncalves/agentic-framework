@@ -2,6 +2,12 @@
 
 This page provides comprehensive documentation for all Agentic Framework CLI commands.
 
+**🚨 CRITICAL HITL PROTOCOLS:**
+- **ALL commands operate under Human-in-the-Loop (HITL) design**
+- **AI agents coordinate WITH humans, never replacing human judgment**
+- **Human approval REQUIRED at ALL quality gates and critical decisions**
+- **Master Agent requires AI assistant integration to function properly**
+
 ## 🚀 Main Commands
 
 ### Master Agent (Interactive Guide)

@@ -1,5 +1,7 @@
 # Installation and Usage Guide
 
+**🚨 CRITICAL: This framework operates under Human-in-the-Loop (HITL) protocols - AI agents coordinate WITH humans, requiring approval at all quality gates!**
+
 ## Installation Methods
 
 ### Method 1: GitHub Installation (Latest Version - Recommended)

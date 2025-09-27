@@ -85,17 +85,63 @@ my-awesome-app/
 └── agentic-scripts/            # CLI tools
 ```
 
-### Step 4: Start Development
+### Step 4: Activate AI Assistant Integration (CRITICAL!)
+
+**🚨 IMPORTANT: This step is ESSENTIAL for the Human-in-the-Loop (HITL) design to work properly!**
 
 ```bash
-# Customize your project requirements
+# 1. Customize your project requirements
 notepad project-brief.md  # Windows
-vim project-brief.md      # macOS/Linux
+vim project-brief.md      # Linux/Mac
 
-# Add master-agent.md to your AI assistant (Claude, ChatGPT, etc.)
-# It's right at the root level - just drag and drop!
+# 2. Review the master-agent.md file (it's at root level!)
+cat master-agent.md       # Linux/Mac
+type master-agent.md      # Windows
+```
 
-# Start the framework workflow
+#### **🤖 AI Assistant Integration (REQUIRED)**
+
+The framework is designed for **Human-in-the-Loop (HITL)** operation. You MUST integrate with an AI assistant:
+
+**For Claude/ChatGPT/Other AI Assistants:**
+
+1. **Add master-agent.md to your AI context:**
+   - **Method 1:** Drag and drop `master-agent.md` into your AI chat
+   - **Method 2:** Copy the entire contents of `master-agent.md` and paste into AI chat
+   - **Method 3:** Use "Add file" or "Attach" feature in your AI assistant
+
+2. **Activate the Master Agent role:**
+   ```
+   Please read the master-agent.md file I just shared. 
+   From now on, you are the Master Agent for this project. 
+   Please confirm you understand your role and are ready to coordinate the development workflow according to the HITL protocols defined in the file.
+   ```
+
+3. **Provide project context:**
+   - Also share your `project-brief.md` with the AI
+   - Share any specific requirements or constraints
+   - Ask the Master Agent to create the initial project plan
+
+4. **Verify HITL activation:**
+   ```
+   Master Agent, please confirm:
+   1. You will follow the HITL protocols requiring human approval at key decision points
+   2. You will coordinate with sub-agents as defined in the framework
+   3. You will respect quality gates and development standards
+   4. You understand your role is to orchestrate, not replace human judgment
+   ```
+
+#### **⚠️ WITHOUT AI INTEGRATION, THE FRAMEWORK WILL NOT FUNCTION AS DESIGNED!**
+
+The Agentic Framework is built on the principle that AI agents orchestrate work **with** humans, not instead of humans. The Master Agent coordinates:
+- Task breakdown and delegation
+- Quality gate checkpoints  
+- Human approval workflows
+- Sub-agent coordination
+- Progress tracking and reporting
+
+```bash
+# 3. Start the framework workflow (after AI integration)
 python agentic-scripts/cli.py start
 ```
 
