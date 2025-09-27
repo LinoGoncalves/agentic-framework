@@ -5,6 +5,8 @@ A production-ready Human-in-the-Loop (HITL) software development lifecycle frame
 
 **🚨 CRITICAL: This framework operates under HITL protocols - AI agents coordinate WITH humans, requiring approval at all quality gates!**
 
+> **✨ NEW in v0.3.1:** Professional VS Code integration with GitHub Copilot instructions, custom chat modes, and enhanced Human-in-the-Loop protocols following official documentation best practices.
+
 [![GitHub Release](https://img.shields.io/github/v/release/LinoGoncalves/agentic-framework)](https://github.com/LinoGoncalves/agentic-framework/releases)
 [![Python Support](https://img.shields.io/badge/python-3.9+-blue.svg)](https://www.python.org/downloads/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
@@ -117,6 +119,18 @@ cd my-web-app
 python agentic-scripts/cli.py start
 ```
 
+## 🎨 VS Code Integration (New in v0.3.1!)
+
+The framework now includes professional VS Code integration for seamless AI-assisted development:
+
+- **🤖 GitHub Copilot Instructions**: Automatic AI assistant configuration via `.github/copilot-instructions.md`
+- **💬 Custom Chat Modes**: "Master Agent" mode for proper HITL coordination in VS Code
+- **📋 Development Standards**: Professional `.github/development_standards/` structure following VS Code best practices
+- **✅ Best Practices Compliance**: Follows official VS Code and GitHub documentation guidelines
+- **🔄 Human-in-the-Loop Ready**: Pre-configured for mandatory human approval workflows
+
+When you create a project, it automatically includes VS Code configuration files that integrate with GitHub Copilot and other AI assistants, ensuring proper Human-in-the-Loop protocols are followed.
+
 ### Available Commands
 
 After installation, you have access to these commands:
@@ -138,6 +152,8 @@ Transform complex software projects into manageable, AI-assisted workflows:
 
 - **🤖 AI Agent Orchestra**: 21 specialized agents (Business Analyst, Developer, QA, DevOps, etc.)
 - **🧑‍💼 Human-in-the-Loop**: Clear handoff points where humans review and approve
+- **🎯 Professional GitHub Structure**: Follows VS Code/GitHub best practices with `.github/` organization  
+- **🤖 AI Assistant Ready**: Pre-configured for GitHub Copilot and other AI tools with proper HITL protocols
 - **📋 Structured Process**: From requirements to deployment with quality gates
 - **🔄 Continuous Learning**: Framework improves based on project experience
 - **📊 Progress Tracking**: Real-time visibility into project status
@@ -204,6 +220,14 @@ When you create a new project, you get this organized structure:
 
 ```
 my-project/
+├── .github/                     # 🆕 Professional GitHub integration (v0.3.1+)
+│   ├── copilot-instructions.md  #     AI assistant configuration
+│   ├── chatmodes/               #     Custom VS Code chat modes
+│   │   └── Master Agent.md      #     HITL coordination mode
+│   └── development_standards/   #     Professional coding standards
+│       ├── coding_styleguide.md
+│       ├── api_design_patterns.md
+│       └── ... (complete standards library)
 ├── master-agent.md              # 🎯 Master orchestration guide (ROOT LEVEL!)
 ├── project-brief.md             # Project requirements and planning
 ├── README.md                    # Project documentation
@@ -211,10 +235,6 @@ my-project/
 │   ├── business-analyst-agent.md
 │   ├── software-developer-agent.md
 │   └── ... (19 more specialized agents)
-├── development-standards/       # Coding standards and templates
-│   ├── coding_styleguide.md
-│   ├── api_design_patterns.md
-│   └── ... (complete standards library)
 ├── templates/                   # Framework templates
 │   ├── project-brief-template.md
 │   ├── quality-gates.md
@@ -223,7 +243,11 @@ my-project/
     └── cli.py                  # Framework automation tools
 ```
 
-**Key Feature:** `master-agent.md` is placed at the project root for easy access when adding to AI context (Claude, ChatGPT, etc.)
+**Key Features:**
+- **`.github/` Professional Structure**: Follows VS Code/GitHub best practices for AI integration
+- **`master-agent.md` at Root**: Easy access when adding to AI context (Claude, ChatGPT, etc.)  
+- **VS Code Integration**: Pre-configured GitHub Copilot instructions and custom chat modes
+- **HITL Ready**: Built-in Human-in-the-Loop protocols for all AI interactions
 
 ## 🔧 Advanced Usage
 
