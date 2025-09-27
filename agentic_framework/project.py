@@ -30,22 +30,23 @@ class ProjectInitializer:
             "1": ("web-app", "Web Application (Django/Flask/FastAPI)"),
             "2": ("api", "REST API Service"),
             "3": ("dashboard", "Data Dashboard (Streamlit)"),
-            "4": ("ml-model", "ML Model Serving"),
-            "5": ("data-pipeline", "Data Pipeline/ETL"),
-            "6": ("cli", "CLI Tool"),
-            "7": ("jupyter-notebook", "Jupyter Notebook Analysis"),
-            "8": ("desktop-app", "Desktop Application (PyQt/Tkinter)"),
-            "9": ("microservice", "Microservice Architecture"),
-            "10": ("data-science", "Data Science Research"),
-            "11": ("devops", "DevOps/Infrastructure"),
-            "12": ("testing", "Testing Framework"),
-            "13": ("custom", "Custom Project Type")
+            "4": ("microservice", "Microservice Architecture"),
+            "5": ("data-science", "Data Science Research"),
+            "6": ("ml-model", "ML Model Serving"),
+            "7": ("data-pipeline", "Data Pipeline/ETL"),
+            "8": ("jupyter-notebook", "Jupyter Notebook Analysis"),
+            "9": ("cli", "CLI Tool"),
+            "10": ("desktop-app", "Desktop Application (PyQt/Tkinter)"),
+            "11": ("testing", "Testing Framework"),
+            "12": ("devops", "DevOps/Infrastructure"),
+            "13": ("custom", "Custom Project Type"),
+            "14": ("other", "Specify your own completely custom type")
         }
         
         for key, (_, description) in project_types_menu.items():
             print(f"{key}. {description}")
         
-        choice = input("\nSelect project type (1-13): ").strip()
+        choice = input("\nSelect project type (1-14): ").strip()
         
         if choice not in project_types_menu:
             print("❌ Invalid choice!")

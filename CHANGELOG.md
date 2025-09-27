@@ -7,6 +7,15 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.2.1] - 2025-09-27
+
+### Fixed
+- **📝 Project Types Alignment** - Fixed mismatch between interactive wizard and documentation
+  - Updated `agentic-new` wizard to show all 14 project types (previously showed 13)  
+  - Added missing "other" project type option for completely custom specifications
+  - Reordered project types to match documentation groupings (Web/API, Data Science/ML, Dev Tools)
+  - Interactive wizard now correctly shows 1-14 options instead of 1-13
+
 ## [0.2.0] - 2025-09-27
 
 ### Added
