@@ -18,7 +18,8 @@ include master-agent.md
 
 # Package data (only from within agentic_framework package)
 recursive-include agentic_framework/sub_agents *.md
-recursive-include agentic_framework/development_standards *.md *.json
+recursive-include agentic_framework/templates *.md *.json
+recursive-include agentic_framework/templates/.github *.md *.json
 recursive-include agentic_framework/scripts *.py
 
 # Exclude unnecessary files

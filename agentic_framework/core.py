@@ -28,7 +28,7 @@ class FrameworkManager:
             
         self.templates_path = self.framework_path / "templates"
         self.sub_agents_path = self.framework_path / "sub_agents"
-        self.development_standards_path = self.framework_path.parent / ".github" / "development_standards"
+        self.development_standards_path = self.framework_path / "templates" / ".github" / "development_standards"
     
     def init_project(self, project_name: str, project_type: str = "web-app", 
                     output_dir: Optional[str] = None) -> Path:
@@ -72,13 +72,35 @@ class FrameworkManager:
         scripts_dir = project_dir / "agentic-scripts"
         scripts_dir.mkdir(exist_ok=True)
         
+        # Create .github directory structure (VS Code/GitHub best practices)
+        github_dir = project_dir / ".github"
+        github_dir.mkdir(exist_ok=True)
+        
         # Copy sub-agents
         if self.sub_agents_path.exists():
             shutil.copytree(self.sub_agents_path, project_dir / "sub-agents", dirs_exist_ok=True)
         
-        # Copy development standards
+        # Copy development standards to .github/development_standards/
         if self.development_standards_path.exists():
-            shutil.copytree(self.development_standards_path, project_dir / "development-standards", dirs_exist_ok=True)
+            target_standards_path = github_dir / "development_standards"
+            shutil.copytree(self.development_standards_path, target_standards_path, dirs_exist_ok=True)
+            print("📁 Copied development standards to .github/development_standards/ (VS Code/GitHub compliant)")
+            
+        # Copy .github files from framework templates
+        template_github_path = self.templates_path / ".github"
+        if template_github_path.exists():
+            # Copy copilot-instructions.md
+            copilot_instructions = template_github_path / "copilot-instructions.md"
+            if copilot_instructions.exists():
+                shutil.copy2(copilot_instructions, github_dir / "copilot-instructions.md")
+                print("🤖 Added .github/copilot-instructions.md for VS Code Copilot integration")
+            
+            # Copy chatmodes directory
+            chatmodes_src = template_github_path / "chatmodes"
+            if chatmodes_src.exists():
+                chatmodes_dst = github_dir / "chatmodes"
+                shutil.copytree(chatmodes_src, chatmodes_dst, dirs_exist_ok=True)
+                print("💬 Added .github/chatmodes/ for custom AI chat modes")
             
         # Copy framework templates (including master-agent.md)
         if self.templates_path.exists():
