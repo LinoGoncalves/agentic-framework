@@ -19,11 +19,23 @@ Welcome to the **Agentic SDLC Framework** wiki! This is your comprehensive guide
 
 The Agentic SDLC Framework transforms complex software projects into manageable, AI-assisted workflows with human oversight at critical decision points.
 
-**🆕 v0.3.0 Features:**
-- **VS Code Integration:** `.github/copilot-instructions.md` automatically recognized by VS Code Copilot
-- **Custom Chat Modes:** HITL-enforced Master Agent mode in `.github/chatmodes/`
-- **Professional Structure:** Development standards in `.github/development_standards/` following GitHub best practices
-- **Enhanced HITL Protocols:** Strengthened Human-in-the-Loop enforcement throughout
+**🆕 v0.3.2 Features (Latest):**
+- **🧠 Context Management Protocol:** Enterprise-scale codebase support with intelligent context compression
+- **📋 Development Roadmap:** 4-phase plan for advanced context intelligence and external memory integration
+- **🎯 Hierarchical Context Architecture:** High/Medium/Low priority context management for large projects
+- **⚡ Phase Transition Management:** Automated context compression with human validation checkpoints
+- **📊 Decision Registry System:** Comprehensive tracking of all human-approved decisions
+- **🚨 Context Limit Management:** Early warning alerts and emergency pruning protocols
+
+**v0.3.1 Features:**
+- **🛠️ Master Agent UX:** Improved user experience with graceful exit options after project creation
+- **📁 Workspace-Level .github:** Corrected VS Code integration structure (workspace vs project level)
+
+**v0.3.0 Features:**
+- **🎨 VS Code Integration:** `.github/copilot-instructions.md` automatically recognized by VS Code Copilot
+- **💬 Custom Chat Modes:** HITL-enforced Master Agent mode in `.github/chatmodes/`
+- **📂 Professional Structure:** Development standards in `.github/development_standards/` following GitHub best practices
+- **✅ Enhanced HITL Protocols:** Strengthened Human-in-the-Loop enforcement throughout
 
 ### Key Features
 - 🤖 **Master Agent Interactive Guide** - Step-by-step guidance system
@@ -87,4 +99,4 @@ See our [Contributing Guidelines](Contributing) for information on:
 
 ---
 
-**Latest Version:** 0.3.0 | **Repository:** [LinoGoncalves/agentic-framework](https://github.com/LinoGoncalves/agentic-framework)
+**Latest Version:** 0.3.2 | **Repository:** [LinoGoncalves/agentic-framework](https://github.com/LinoGoncalves/agentic-framework)

@@ -79,15 +79,24 @@ my-awesome-app/
 ├── master-agent.md              # 🎯 Master orchestration guide (ROOT LEVEL!)
 ├── project-brief.md             # Your project requirements
 ├── README.md                    # Project documentation  
-├── .github/                     # 📁 GitHub configuration (VS Code/GitHub best practices)
-│   ├── copilot-instructions.md  #    VS Code Copilot guidelines
-│   ├── chatmodes/               #    Custom AI chat modes
-│   │   └── Master Agent.md      #    HITL-enforced Master Agent mode
-│   └── development_standards/   #    Development standards and templates
 ├── sub-agents/                  # 21 AI agent specifications
-├── templates/                   # Framework templates
+├── templates/                   # Framework templates  
 └── agentic-scripts/            # CLI tools
+
+# At WORKSPACE level (outside project folder):
+workspace/
+├── .github/                     # 📁 VS Code/GitHub integration (NEW in v0.3.1!)
+│   ├── copilot-instructions.md  #    AI assistant configuration
+│   ├── chatmodes/               #    Custom AI chat modes for VS Code
+│   │   └── Master Agent.md      #    HITL-enforced coordination mode
+│   └── development_standards/   #    Professional coding standards
+└── my-awesome-app/             # Your project directory
 ```
+
+**🎯 Key Structure Changes in v0.3.1:**
+- `.github/` directory now correctly placed at **workspace level** (not inside project)
+- VS Code integration files apply to entire workspace
+- Follows official VS Code and GitHub best practices
 
 ### Step 4: Activate AI Assistant Integration (CRITICAL!)
 
@@ -233,4 +242,35 @@ Once your project is created:
 3. **Learn** about [AI Agents](AI-Agents) and their roles
 4. **Customize** [Development Standards](Development-Standards) for your needs
 
-Welcome to systematic, AI-assisted development! 🚀
+## 🧠 Enterprise Features (v0.3.2+)
+
+### Context Management for Large Projects
+
+The framework now includes intelligent context management for enterprise-scale codebases:
+
+**Hierarchical Context Architecture:**
+- **High Priority (20%):** Master instructions, current phase, recent decisions
+- **Medium Priority (50%):** Agent persona, technical context, phase standards
+- **Low Priority (30%):** Historical discussions, archived decisions, references
+
+**Phase Transition Management:**
+- Automated context compression with human validation
+- Decision registry tracking all human approvals
+- Context quality monitoring and drift detection
+- Early warning alerts when context limits approach
+
+**Usage:**
+The context management protocols are automatically active in both the root-level `master-agent.md` and VS Code chat mode. No additional configuration required - the system will prompt for human approval when context optimization is needed.
+
+## 🎯 Development Roadmap
+
+The framework follows a comprehensive 4-phase roadmap for enterprise scaling:
+
+- **Phase 1 (v0.3.2):** ✅ Context Compression & Hierarchical Architecture
+- **Phase 2 (v0.4.0):** Smart Checkpointing System (4-6 weeks)
+- **Phase 3 (v0.5.0):** External Memory Integration (8-12 weeks) 
+- **Phase 4 (v0.6.0+):** Advanced Context Intelligence (12+ weeks)
+
+See [ROADMAP.md](https://github.com/LinoGoncalves/agentic-framework/blob/main/ROADMAP.md) for complete details.
+
+Welcome to systematic, AI-assisted development with enterprise-scale capabilities! 🚀
