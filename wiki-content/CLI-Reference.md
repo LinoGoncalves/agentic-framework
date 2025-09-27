@@ -24,6 +24,11 @@ Launches the interactive Master Agent with 6 main options:
 
 **Shortcut:** `agentic-master-agent`
 
+**🆕 VS Code Integration:** Projects automatically include:
+- `.github/copilot-instructions.md` for VS Code Copilot integration
+- `.github/chatmodes/Master Agent.md` for HITL-enforced coordination  
+- `.github/development_standards/` following GitHub best practices
+
 ### Project Creation
 ```bash
 # Direct project creation

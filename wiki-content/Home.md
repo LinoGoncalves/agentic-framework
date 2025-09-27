@@ -19,6 +19,12 @@ Welcome to the **Agentic SDLC Framework** wiki! This is your comprehensive guide
 
 The Agentic SDLC Framework transforms complex software projects into manageable, AI-assisted workflows with human oversight at critical decision points.
 
+**🆕 v0.3.0 Features:**
+- **VS Code Integration:** `.github/copilot-instructions.md` automatically recognized by VS Code Copilot
+- **Custom Chat Modes:** HITL-enforced Master Agent mode in `.github/chatmodes/`
+- **Professional Structure:** Development standards in `.github/development_standards/` following GitHub best practices
+- **Enhanced HITL Protocols:** Strengthened Human-in-the-Loop enforcement throughout
+
 ### Key Features
 - 🤖 **Master Agent Interactive Guide** - Step-by-step guidance system
 - 📁 **15+ Project Types** - From web apps to ML models to custom types
@@ -81,4 +87,4 @@ See our [Contributing Guidelines](Contributing) for information on:
 
 ---
 
-**Latest Version:** 0.2.1 | **Repository:** [LinoGoncalves/agentic-framework](https://github.com/LinoGoncalves/agentic-framework)
+**Latest Version:** 0.3.0 | **Repository:** [LinoGoncalves/agentic-framework](https://github.com/LinoGoncalves/agentic-framework)

@@ -78,9 +78,13 @@ You'll see this structure:
 my-awesome-app/
 ├── master-agent.md              # 🎯 Master orchestration guide (ROOT LEVEL!)
 ├── project-brief.md             # Your project requirements
-├── README.md                    # Project documentation
+├── README.md                    # Project documentation  
+├── .github/                     # 📁 GitHub configuration (VS Code/GitHub best practices)
+│   ├── copilot-instructions.md  #    VS Code Copilot guidelines
+│   ├── chatmodes/               #    Custom AI chat modes
+│   │   └── Master Agent.md      #    HITL-enforced Master Agent mode
+│   └── development_standards/   #    Development standards and templates
 ├── sub-agents/                  # 21 AI agent specifications
-├── development-standards/       # Coding standards and templates
 ├── templates/                   # Framework templates
 └── agentic-scripts/            # CLI tools
 ```
@@ -130,6 +134,13 @@ The framework is designed for **Human-in-the-Loop (HITL)** operation. You MUST i
    3. You will respect quality gates and development standards
    4. You understand your role is to orchestrate, not replace human judgment
    ```
+
+**🆕 VS Code Integration Features:**
+
+The `.github/` directory in your project includes VS Code-specific integration:
+- **`copilot-instructions.md`** - Automatically recognized by VS Code Copilot for coding standards
+- **`chatmodes/Master Agent.md`** - Custom chat mode available in VS Code's chat mode dropdown
+- **`development_standards/`** - Professional GitHub repository structure following official guidelines
 
 #### **⚠️ WITHOUT AI INTEGRATION, THE FRAMEWORK WILL NOT FUNCTION AS DESIGNED!**
 
