@@ -7,6 +7,15 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.2.2] - 2025-09-27
+
+### Fixed
+- **🎯 UI Consistency in Master Agent** - Fixed project type display inconsistency
+  - Master Agent's "Create New Project" now shows numbered options (1-14) instead of bullet points
+  - Added support for both numeric (1-14) and text input (web-app, api, etc.) for project types
+  - Reordered project types to match documentation groupings (Web/API, Data Science/ML, Dev Tools)
+  - Consistent user experience across all project creation interfaces
+
 ## [0.2.1] - 2025-09-27
 
 ### Fixed

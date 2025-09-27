@@ -165,24 +165,35 @@ class MasterAgent:
                 return
                 
             print("\n🎯 Available project types:")
-            print("   • web-app (default) - Web Application (Django/Flask/FastAPI)")
-            print("   • api - REST API Service")
-            print("   • dashboard - Data Dashboard (Streamlit)")
-            print("   • ml-model - ML Model Serving")
-            print("   • data-pipeline - Data Pipeline/ETL")
-            print("   • cli - CLI Tool")
-            print("   • jupyter-notebook - Jupyter Notebook Analysis")
-            print("   • desktop-app - Desktop Application (PyQt/Tkinter)")
-            print("   • microservice - Microservice Architecture")
-            print("   • data-science - Data Science Research")
-            print("   • devops - DevOps/Infrastructure")
-            print("   • testing - Testing Framework")
-            print("   • custom - Custom Project Type")
-            print("   • other - Other (specify your own)")
+            print("   1. web-app (default) - Web Application (Django/Flask/FastAPI)")
+            print("   2. api - REST API Service")
+            print("   3. dashboard - Data Dashboard (Streamlit)")
+            print("   4. microservice - Microservice Architecture")
+            print("   5. data-science - Data Science Research")
+            print("   6. ml-model - ML Model Serving")
+            print("   7. data-pipeline - Data Pipeline/ETL")
+            print("   8. jupyter-notebook - Jupyter Notebook Analysis")
+            print("   9. cli - CLI Tool")
+            print("   10. desktop-app - Desktop Application (PyQt/Tkinter)")
+            print("   11. testing - Testing Framework")
+            print("   12. devops - DevOps/Infrastructure")
+            print("   13. custom - Custom Project Type")
+            print("   14. other - Other (specify your own)")
             
-            project_type = input("\n📋 Project type (press Enter for web-app): ").strip().lower()
+            project_type = input("\n📋 Project type (1-14, press Enter for web-app): ").strip().lower()
+            
+            # Map numeric choices to project types
+            type_map = {
+                "1": "web-app", "2": "api", "3": "dashboard", "4": "microservice",
+                "5": "data-science", "6": "ml-model", "7": "data-pipeline", 
+                "8": "jupyter-notebook", "9": "cli", "10": "desktop-app",
+                "11": "testing", "12": "devops", "13": "custom", "14": "other"
+            }
+            
             if not project_type:
                 project_type = "web-app"
+            elif project_type in type_map:
+                project_type = type_map[project_type]
             elif project_type == "other":
                 custom_type = input("📝 Enter your custom project type: ").strip()
                 project_type = custom_type if custom_type else "custom"
